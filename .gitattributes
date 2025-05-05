@@ -1,0 +1,2 @@
+main/webapp/resources/video/* filter=lfs diff=lfs merge=lfs -text
+main/webapp/resources/video/intro.mov filter=lfs diff=lfs merge=lfs -text
