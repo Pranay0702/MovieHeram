@@ -2,7 +2,15 @@
     pageEncoding="UTF-8"%>
     <%@ page import="com.movieheram.model.UserModel" %>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 	
+	<%
+    UserModel user = (UserModel) session.getAttribute("user");
+    if (user == null) {
+        response.sendRedirect("login");
+        return;
+    }
+    %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,11 +29,11 @@
     </div>
     <div class="nav-links" id="navLinks">
       <a href="home" class="active">Home</a>
-            <a href="movies">Movies</a>
+            <a href="movie">Movies</a>
             <a href="series">Series</a>
-            <a href="cartoons">Anime</a>
+            <a href="cartoon">Anime</a>
       <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Search...">
+        <input type="" id="searchInput" placeholder="Search..." readonly>
       </div>
       <div class="auth-buttons">
         <div class="profile-container" id="profileContainer">
@@ -49,41 +57,52 @@
     </div>
   </nav>
 
-  <section class="MainContainer">
+
     <section class="featured-text">
-        <h1>Favorites Movies</h1>
+        <h1>Favorite Movies</h1>
     </section>
-<c:choose>
+    <c:choose>
   <c:when test="${empty movieList}">
     <div style="text-align:left; padding: 40px;">
       <h1>No favorite movies found</h1>
     </div>
   </c:when>
   <c:otherwise>
-    <section class="fav-cards">
+  
+
+      <section class="fav-cards">
+      
       <c:forEach var="movie" items="${movieList}">
         <div class="media-card">
           <div class="fav-btn-fixed">
-            <button class="fav-btn" onclick="toggleFavorite(this, '${movie.movieID}')">
-              <i class="fa-solid fa-heart" style="color: red;"></i>
-            </button>
+            <form action="favorite" method="post" style="display:inline;">
+			  <input type="hidden" name="movieId" value="${movie.movieID}" />
+			    <input type="hidden" name="redirect" value="favorite" />
+			  <button type="submit" class="fav-btn" style="background: none; border: none;">
+			    <i class="fa-solid fa-heart" style="color:red;"></i>
+			  </button>
+			</form>
           </div>
           <div class="image-wrapper">
-            <img src="${movie.thumbnail}" alt="${movie.title}">
-            <div class="overlay">
-              <a href="#playerModal" class="watch-btn" onclick="playVideo('${movie.video}')">▶ Watch Now</a>
-            </div>
-          </div>
+				<c:choose>
+				  <c:when test="${fn:startsWith(movie.thumbnail, 'http')}">
+				    <img src="${movie.thumbnail}" alt="${movie.title}">
+				  </c:when>
+				  <c:otherwise>
+				    <img src="${pageContext.request.contextPath}/resources/images/movie/${movie.thumbnail}" alt="${movie.title}">
+				  </c:otherwise>
+				</c:choose>		
+				</div>
           <div class="media-info">
             <h3 class="media-title">${movie.title}</h3>
             <p class="media-meta">Genre: ${movie.genre} | Year: ${movie.releaseYear}</p>
           </div>
         </div>
       </c:forEach>
+        
     </section>
   </c:otherwise>
 </c:choose>
-    </section>
  
  
 
@@ -96,7 +115,7 @@
         <div class="footer-section">
             <h3>Quick Links</h3>
             <a href="about">About Us</a>
-            <a href="#">Contact</a>
+            <a href="https://help.netflix.com/en">Contact</a>
             <a href="termsCondition">Terms of Service</a>
         </div>
         <div class="footer-section">

@@ -13,11 +13,7 @@
     <div class="container">
         <header>
             <h1>Terms and Conditions</h1>
-<<<<<<< HEAD
-            <img src="/Imgs/Namasteywithdoggos.png" alt="Welcome to Movieहेरम" class="welcome-img">
-=======
             <img src="${pageContext.request.contextPath}/resources/images/system/logo.png" alt="Welcome to Movieहेरम" class="welcome-img">
->>>>>>> recovered-changes
             <p>Welcome to Movieहेरम - your ultimate destination for streaming cinema that ignites passion.</p>
         </header>
         <section>

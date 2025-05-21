@@ -2,11 +2,16 @@
     pageEncoding="UTF-8"%>
  <%@ page import="com.movieheram.model.UserModel" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<<<<<<< HEAD
-=======
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
->>>>>>> recovered-changes
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%
+    UserModel user = (UserModel) session.getAttribute("user");
+    if (user == null) {
+        response.sendRedirect("login");
+        return;
+    }
+    %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +44,9 @@
             <a href="series">Series</a>
             <a href="cartoon">Anime</a>
             <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Search...">
+             <form action="home" method="get" id="searchForm">
+		        <input type="text" id="searchInput" name="search" placeholder="Search..." value="${param.search}">
+		      </form>
             </div>
             <div class="auth-buttons">
                 <div class="profile-container" id="profileContainer">
@@ -56,13 +63,9 @@
 				        </c:if>                   
 				        <div class="profile-dropdown">
                         <a href="profile">My Profile</a>
-<<<<<<< HEAD
-                        <a href="profile">My Favourites</a>
-                        <a href="logOut" id="logoutBtn">Logout</a>
-=======
+
                         <a href="favorite">My Favorites</a>
                         <a href="logout" id="logoutBtn">Logout</a>
->>>>>>> recovered-changes
                     </div>
                 </div>
             </div>
@@ -72,29 +75,23 @@
       <i class="fas fa-arrow-up"></i>
   </div>
     <main>
-        <main>
-            <section class="page-header">
-                <h1>Anime 🎬</h1>
-                <p>Your favorite animated shows and series</p>
-            </section>
+            <section class="MainApp">
+        <video id="MainApp-video" autoplay loop muted playsinline class="MainApp-video">
+            <source src="${pageContext.request.contextPath}/resources/video/Anime intro.mov" type="video/mp4" />
+            Your browser does not support the video.
+        </video>
+        <div class="MainApp-content">
+            <h1>Anime 🎬</h1>
+            <p style="font-size: 1.5rem;">Discover our collection of latest and greatest animes</p>
+        </div>
+        <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="500" id="scroll-down-btn">
+            <div class="mouse"></div>
+            <p>Scroll Down</p>
+        </div>
+    </section>
 
         <section class="filters">
-<<<<<<< HEAD
-            <select id="genreFilter">
-                <option value="">All Genres</option>
-                <option value="action">Action</option>
-                <option value="comedy">Comedy</option>
-                <option value="drama">Drama</option>
-                <option value="horror">Horror</option>
-            </select>
-            <select id="yearFilter">
-                <option value="">All Years</option>
-                <option value="2024">2024</option>
-                <option value="2023">2023</option>
-                <option value="2022">2022</option>
-                <option value="2021">2021</option>
-            </select>
-=======
+
              <form id="filterForm" action="cartoon" method="get">
     <select name="genre" onchange="document.getElementById('filterForm').submit()">
         <option value="">All Genres</option>
@@ -102,11 +99,14 @@
         <option value="Drama" ${param.genre == 'Drama' ? 'selected' : ''}>Drama</option>
         <option value="Sci-Fi" ${param.genre == 'Sci-Fi' ? 'selected' : ''}>Sci-Fi</option>
         <option value="Comedy" ${param.genre == 'Comedy' ? 'selected' : ''}>Comedy</option>
+        <option value="Horror" ${param.genre == 'Horror' ? 'selected' : ''}>Horror</option>       
+
         
     </select>
 
     <select name="year" onchange="document.getElementById('filterForm').submit()">
         <option value="">All Years</option>
+        <option value="2025" ${param.year == '2025' ? 'selected' : ''}>2025</option>
         <option value="2024" ${param.year == '2024' ? 'selected' : ''}>2024</option>
         <option value="2023" ${param.year == '2023' ? 'selected' : ''}>2023</option>
         <option value="2022" ${param.year == '2022' ? 'selected' : ''}>2022</option>
@@ -115,103 +115,22 @@
 
     </select>
 </form>
->>>>>>> recovered-changes
         </section>
 
-        <section class="featured-text">
+        <section class="featured-text" >
           <h1>Featured Movies</h1>
-        </section>
-
-<<<<<<< HEAD
-         <!-- Movie, Series, Cartoons Sections -->
-         <section class="featured-cards">
-               <!--Kung fu Panda 4-->
-        
-               <div class="media-card">
-                <div class="fav-btn-fixed">
-                  <button class="fav-btn" onclick="toggleFavorite(this)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="image-wrapper">
-                  <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrakPTsqdEOxYzMjxiAu2V8Lb_MV8luTzwiGTuyhzcnUdL5m5Pn8P0QUvDsOqSol-i27-eSg" alt="Movie">
-                  <div class="overlay">
-                    <a href="#playerModal" class="watch-btn" onclick="playVideo('${pageContext.request.contextPath}/resources/video/KUNG FU PANDA 4.mp4')">▶ Watch Now</a>
-                  </div>
-                </div>
-                <div class="media-info">
-                  <h3 class="media-title">KUNG FU PANDA 4</h3>
-                  <p class="media-meta">Genre: Animation | Year: 2024</p>
-                </div>
-              </div>
-        
-              <!--Despicable Me 4 | Rotten Tomatoes-->
-        
-              <div class="media-card">
-                <div class="fav-btn-fixed">
-                  <button class="fav-btn" onclick="toggleFavorite(this)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="image-wrapper">
-                  <img src="https://resizing.flixster.com/vH3pXN9NjNObggCELzxEkFZfmM8=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzMyNmZhYmFmLWFkN2EtNDViMC1iM2U4LWM4YjUzMjcyMDNiNC5qcGc=" alt="Movie">
-                  <div class="overlay">
-                    <a href="#playerModal" class="watch-btn" onclick="playVideo('${pageContext.request.contextPath}/resources/video/Despicable Me 4.mp4')">▶ Watch Now</a>
-                  </div>
-                </div>
-                <div class="media-info">
-                  <h3 class="media-title">Despicable Me 4 | Rotten Tomatoes</h3>
-                  <p class="media-meta">Genre: Animation | Year: 2024</p>
-                </div>
-              </div>
-                      
-              <!--Cars-->
-        
-              <div class="media-card">
-                <div class="fav-btn-fixed">
-                  <button class="fav-btn" onclick="toggleFavorite(this)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="image-wrapper">
-                  <img src="https://lumiere-a.akamaihd.net/v1/images/p_cars_19643_4405006d.jpeg" alt="Movie">
-                  <div class="overlay">
-                    <a href="#playerModal" class="watch-btn" onclick="playVideo('${pageContext.request.contextPath}/resources/video/Mission Impossible The Final Reckoning.mp4')">▶ Watch Now</a>
-                  </div>
-                </div>
-                <div class="media-info">
-                  <h3 class="media-title">Cars</h3>
-                  <p class="media-meta">Genre: Animation | Year: 2020</p>
-                </div>
-              </div>
-        
-              <!-- How to train ur Dragon -->
-        
-              <div class="media-card">
-                <div class="fav-btn-fixed">
-                  <button class="fav-btn" onclick="toggleFavorite(this)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="image-wrapper">
-                  <img src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p3625299_p_v13_al.jpg" alt="Movie">
-                  <div class="overlay">
-                    <a href="#playerModal" class="watch-btn" onclick="playVideo('${pageContext.request.contextPath}/resources/video/Mission Impossible The Final Reckoning.mp4')">▶ Watch Now</a>
-                  </div>
-                </div>
-                <div class="media-info">
-                  <h3 class="media-title">HOW TO TRAIN YOUR DRAGON</h3>
-                  <p class="media-meta">Genre: Action | Year: 2023</p>
-                </div>
-              </div>
-=======
-        
-            <section class="featured-cards">
+        </section>        
+            <section class="featured-cards" id="cartoonSection">
                 <c:forEach var="movie" items="${movieList}">
 					  <div class="media-card">
 					    <div class="fav-btn-fixed">
-					      <button class="fav-btn" onclick="toggleFavorite(this, '${movie.movieID}')">
-					        <i class="fa-regular fa-heart"></i>
+					      <form action="favorite" method="post" style="display:inline;">
+							  <input type="hidden" name="movieId" value="${movie.movieID}" />
+							  <input type="hidden" name="redirect" value="cartoon#cartoonSection">
+							  <button type="submit" class="fav-btn" style="background: none; border: none;">
+							   <i class="${movie.isFav ? 'fa-solid' : 'fa-regular'} fa-heart" style="${movie.isFav ? 'color:red;' : ''}"></i>
+							  </button>
+							</form>
 					      </button>
 					    </div>
 					    <div class="image-wrapper">
@@ -234,7 +153,6 @@
 					  </div>
 					</c:forEach>
         
->>>>>>> recovered-changes
             </section>
         
             <!-- Popup Player -->
@@ -259,7 +177,7 @@
         <div class="footer-section">
             <h3>Quick Links</h3>
             <a href="about.html">About Us</a>
-            <a href="Contact.html">Contact</a>
+            <a href="https://help.netflix.com/en">Contact</a>
             <a href="T&C.html">Terms of Service</a>
         </div>
         <div class="footer-section">
@@ -277,36 +195,10 @@
 </footer>
     
 
-    <script src="${pageContext.request.contextPath}/javascript/main.js">
+    <script>
         function scrollToTop() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    </script>
-    <script>
-    if ('ontouchstart' in window) {
-        document.body.classList.add('touch-device');
-      }
-      // Home page mp4 (Only mute/unmute toggle button)
-      document.addEventListener('DOMContentLoaded', () => {
-          const muteButton = document.getElementById('mute-btn');
-          const video = document.getElementById('hero-video');
-      
-          // Set initial muted state to true (muted initially)
-          video.muted = true;
-          muteButton.textContent = '🔇'; // Set icon on load
-      
-          // Handle mute/unmute button click
-          muteButton.addEventListener('click', () => {
-              if (video.muted) {
-                  video.muted = false;  // Unmute the video
-                  muteButton.textContent = '🔊';  // Change button to unmute icon
-              } else {
-                  video.muted = true;  // Mute the video
-                  muteButton.textContent = '🔇';  // Change button to mute icon
-              }
-          });
-      });
-      
 
      // Back to Top Button(->)
      const backToTop = document.getElementById('back-to-top');

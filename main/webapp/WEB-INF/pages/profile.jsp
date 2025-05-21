@@ -3,10 +3,7 @@
 <%@ page import="com.movieheram.model.UserModel" %>
 <%@ page import="java.sql.Date" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<<<<<<< HEAD
 
-=======
->>>>>>> recovered-changes
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%
@@ -48,13 +45,9 @@
         <nav class="navbar">
             <div class="logo">Movieहेरम</div>
             <div style="display: flex; gap: 20px;">
-<<<<<<< HEAD
-                <a href="home" class="btn-primary">Home</a>
-                <a href="login" class="btn-primary">Logout</a>
-=======
+
                 <a href="home" class="btn-primary"> <span> Home </span> </a>
                 <a href="login" class="btn-primary"> <span> Logout </span> </a>
->>>>>>> recovered-changes
             </div>
         </nav>
 
@@ -101,11 +94,9 @@
                         <input type="email" name="email" value="<%= user.getEmail() %>" readonly>
                     </div>
 
-<<<<<<< HEAD
-                    <button type="submit" class="btn-primary">Update Profile</button>
-=======
+
                     <button type="submit" class="btn-primary"> <span> Update Profile </span> </button>
->>>>>>> recovered-changes
+
                 </form>
 
                 <!-- Change Password Form -->
@@ -128,11 +119,8 @@
                         <label>New Password</label>
                         <input type="password" name="newPassword" required>
                     </div>
-<<<<<<< HEAD
-                    <button type="submit" class="btn-primary">Change Password</button>
-=======
+
                     <button type="submit" class="btn-primary"> <span> Change Password </span> </button>
->>>>>>> recovered-changes
                 </form>
             </div>
         </div>
@@ -147,12 +135,8 @@
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <a href="about">About Us</a>
-                <a href="#">Contact</a>
-<<<<<<< HEAD
-                <a href="termsCondtion">Terms of Service</a>
-=======
+                <a href="https://help.netflix.com/en">Contact</a>
                 <a href="termsCondition">Terms of Service</a>
->>>>>>> recovered-changes
             </div>
             <div class="footer-section">
                 <h3>Connect With Us</h3>

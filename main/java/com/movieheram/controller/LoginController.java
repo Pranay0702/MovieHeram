@@ -66,9 +66,7 @@ public class LoginController extends HttpServlet {
 			SignUpService signUpService = new SignUpService(); 
 		    UserModel fullUser = signUpService.getUserById(userModel.getId()); 
 
-		    
-		    req.getSession().setAttribute("userId", fullUser.getId());
-
+		   
             // Store full user object in session
             SessionUtil.setAttribute(req, "user", fullUser);
             String role = userModel.getIs_admin() != null && userModel.getIs_admin() ? "admin" : "user";

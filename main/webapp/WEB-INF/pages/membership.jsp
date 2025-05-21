@@ -32,11 +32,7 @@
                 </ul>
                 <form method="post" action="membership">
 				    <input type="hidden" name="membershipId" value="3" />
-<<<<<<< HEAD
-				    <button class="btn-primary">Get Standard</button>
-=======
 				    <button class="btn-primary"><span>Get Standard</span></button>
->>>>>>> recovered-changes
 				</form>
 
             </div>
@@ -56,11 +52,7 @@
                 
 				<form method="post" action="membership">
 				    <input type="hidden" name="membershipId" value="1" />
-<<<<<<< HEAD
-				    <button class="btn-primary">Get Premium Plus+</button>
-=======
 				    <button class="btn-primary"><span>Get Premium Plus+</span></button>
->>>>>>> recovered-changes
 				</form>
             </div>
 
@@ -77,11 +69,7 @@
                 </ul>
                 <form method="post" action="membership">
 				    <input type="hidden" name="membershipId" value="2" />
-<<<<<<< HEAD
-				    <button class="btn-primary">Get Premium</button>
-=======
 				    <button class="btn-primary"><span>Get Premium</span></button>
->>>>>>> recovered-changes
 				</form>
 
             </div>

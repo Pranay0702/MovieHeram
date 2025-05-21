@@ -1,6 +1,9 @@
 package com.movieheram.model;
 
 import java.sql.Date;
+import java.util.List;
+
+import com.movieheram.model.MovieModel; 
 
 public class UserModel {
 	private int id;
@@ -11,6 +14,8 @@ public class UserModel {
 	private Boolean is_admin;
 	private MembershipModel membership;
 	private Date createdDate;
+    private List<MovieModel> favoriteMovies;
+
 	
 	public UserModel() {
 	}
@@ -113,4 +118,11 @@ public class UserModel {
 	    this.createdDate = createdDate;
 	}
 	
+	 public List<MovieModel> getFavoriteMovies() {
+	        return favoriteMovies;
+	    }
+	 public void setFavoriteMovies(List<MovieModel> favoriteMovies) {
+	        this.favoriteMovies = favoriteMovies;
+	    }
+
 }

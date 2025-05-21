@@ -16,7 +16,7 @@ import com.movieheram.model.UserModel;
 import com.movieheram.service.UpdateService;
 
 /**
- * Servlet implementation class ProfileController
+ * ProfileController handles user profile with updating the profile and changing the password.
  */
 @WebServlet(asyncSupported = true, name = "Profile", urlPatterns = { "/profile","/updateProfile", "/changePassword" })
 @MultipartConfig
@@ -24,8 +24,17 @@ public class ProfileController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	 private final UpdateService userService = new UpdateService();
-	    private final ImageUtil imageUtil = new ImageUtil();
-
+	 private final ImageUtil imageUtil = new ImageUtil();
+	 
+	 /**
+		 * Handles GET requests to the user profile page.
+		 *
+		 * @param request  HttpServletRequest object
+		 * @param response HttpServletResponse object
+		 * @throws ServletException if a servlet-specific error occurs
+		 * @throws IOException      if an I/O error occurs
+		 */
+	 	@Override
 	    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    	 UserModel sessionUser = (UserModel) request.getSession().getAttribute("user");
 
@@ -35,9 +44,18 @@ public class ProfileController extends HttpServlet {
 	    	    }
 	    	   
 
-	    	    request.setAttribute("user", sessionUser); // Optional if JSP uses EL for user
-	    	    request.getRequestDispatcher("/WEB-INF/pages/profile.jsp").forward(request, response);	    }
-
+	    	    request.setAttribute("user", sessionUser); 
+	    	    request.getRequestDispatcher("/WEB-INF/pages/profile.jsp").forward(request, response);	   
+	    	    }
+	 	/**
+		 * Handles GET requests to the user profile page.
+		 *
+		 * @param request  HttpServletRequest object
+		 * @param response HttpServletResponse object
+		 * @throws ServletException if a servlet-specific error occurs
+		 * @throws IOException      if an I/O error occurs
+		 */
+	 	@Override
 	    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	        String path = request.getServletPath();
 	        UserModel sessionUser = (UserModel) request.getSession().getAttribute("user");
@@ -58,13 +76,8 @@ public class ProfileController extends HttpServlet {
 	                }
 
 	                if (filePart != null && filePart.getSize() > 0) {
-	                    String imageName = imageUtil.getImageNameFromPart(filePart);
-	                    // This gets the absolute path of the webapp root
-	                    String rootPath = getServletContext().getRealPath("/");
-	                    
-	                    // Save the image to /webapp/user/
-	                    imageUtil.uploadImage(filePart, rootPath, "resources/images/user");
-	                    
+	                  
+	                   
 	                    String imageName = imageUtil.getImageNameFromPart(filePart,"user");
 	                    // This gets the absolute path of the webapp root
 	                    String rootPath = "";                   

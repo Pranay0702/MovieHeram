@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-=======
+
 @charset "UTF-8";
 
->>>>>>> recovered-changes
 * {
     margin: 0;
     padding: 0;
@@ -224,8 +222,8 @@ body {
 /* Plans Section */
 .plans-container {
     min-height: 100vh;
-    padding: 60px 20px;
-    max-width: 1200px;
+    padding: 60px 0px 0px 0px;
+    max-width: 2000px;
     margin: 0 auto;
     background: linear-gradient(135deg, rgba(10, 10, 10, 0.95), rgba(26, 26, 26, 0.95));
 }
@@ -241,7 +239,7 @@ body {
 .plan-card {
     height: 600px;
     background: rgba(26, 26, 26, 0.95);
-    padding: 40px;
+    padding: 42px;
     border-radius: 20px;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid rgba(255, 51, 102, 0.1);
@@ -538,13 +536,8 @@ nav {
 }
 
 .profile-image img {
-<<<<<<< HEAD
-    width: 150px;
-    height: 150px;
-=======
     width: 130px;
     height: 130px;
->>>>>>> recovered-changes
     border-radius: 50%;
     border: 4px solid transparent;
     background: var(--gradient);

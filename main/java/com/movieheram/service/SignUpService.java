@@ -17,17 +17,22 @@ import com.movieheram.model.UserModel;
 public class SignUpService {
 	
 	private Connection dbConn;
+	private boolean isConnectionError = false;
 	
 	/**
-	 * Constructor initializes the database connection.
+	 * Constructor that initializes the database connection. Sets the connection
+	 * error flag if the connection fails.
 	 */
+	
 	public SignUpService() {
-		/**try {
-			this.dbConn = DbConfig.getDbConnection();
-		} catch (SQLException | ClassNotFoundException ex) {
-			System.err.println("Database connection error: " + ex.getMessage());
-			ex.printStackTrace();
-		}*/
+		
+		try {
+	        dbConn = DbConfig.getDbConnection();
+	    } catch (SQLException | ClassNotFoundException ex) {
+	        ex.printStackTrace();
+	        isConnectionError = true;
+	    }
+
 	}
 	/**
 	 * Registers a new user in the database.
@@ -38,16 +43,10 @@ public class SignUpService {
 	 */
 
 	public Integer addUser(UserModel userModel) throws ClassNotFoundException {
-		/**if (dbConn == null) {
-			System.err.println("Database connection is not available.");
-			return null;
-		}*/
-		
 		String insertQuery = "INSERT INTO user (Name, Email, Password, Image, Is_Admin, Membership_ID, Created_Date) "
 				+ "VALUES (?,?,?,?,false,NULL,CURDATE())";
 		
-		try ( Connection dbConn = DbConfig.getDbConnection();
-				PreparedStatement insertStmt = dbConn.prepareStatement(insertQuery, PreparedStatement.RETURN_GENERATED_KEYS)) {
+		try ( 	PreparedStatement insertStmt = dbConn.prepareStatement(insertQuery, PreparedStatement.RETURN_GENERATED_KEYS)) {
 			
 						// Insert user details
 						insertStmt.setString(1, userModel.getName());

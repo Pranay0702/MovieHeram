@@ -2,11 +2,16 @@
     pageEncoding="UTF-8"%>
 <%@ page import="com.movieheram.model.UserModel" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<<<<<<< HEAD
-=======
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
->>>>>>> recovered-changes
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%
+    UserModel user = (UserModel) session.getAttribute("user");
+    if (user == null) {
+        response.sendRedirect("login");
+        return;
+    }
+    %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +44,9 @@
             <a href="#">Series</a>
             <a href="cartoon">Anime</a>
             <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Search...">
+             <form action="home" method="get" id="searchForm">
+        		<input type="text" id="searchInput" name="search" placeholder="Search..." value="${param.search}">
+	        </form>
             </div>
             <div class="auth-buttons">
                 <div class="profile-container" id="profileContainer">
@@ -56,13 +63,9 @@
 				        </c:if>                   
 				         <div class="profile-dropdown">
                         <a href="profile">My Profile</a>
-<<<<<<< HEAD
-                        <a href="profile">My Favourites</a>
-                        <a href="logOut" id="logoutBtn">Logout</a>
-=======
+
                         <a href="favorite">My Favorites</a>
                         <a href="logout" id="logoutBtn">Logout</a>
->>>>>>> recovered-changes
                     </div>
                 </div>
             </div>
@@ -74,28 +77,23 @@
   </div>
 
     <main>
-        <section class="page-header">
-            <h1>TV Series 🎬</h1>
-            <p>Binge-worthy series for endless entertainment</p>
-        </section>
+       <section class="MainApp">
+        <video id="MainApp-video" autoplay loop muted playsinline class="MainApp-video">
+            <source src="${pageContext.request.contextPath}/resources/video/Series Intro.mov" type="video/mp4" />
+            Your browser does not support the video.
+        </video>
+        <div class="MainApp-content">
+            <h1>Series 🎬</h1>
+            <p style="font-size: 1.5rem;">Discover our collection of latest and greatest series</p>
+        </div>
+        <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="500" id="scroll-down-btn">
+            <div class="mouse"></div>
+            <p>Scroll Down</p>
+        </div>
+    </section>
 
         <section class="filters">
-<<<<<<< HEAD
-            <select id="genreFilter">
-                <option value="">All Genres</option>
-                <option value="drama">Drama</option>
-                <option value="comedy">Comedy</option>
-                <option value="thriller">Thriller</option>
-                <option value="scifi">Sci-Fi</option>
-            </select>
-            <select id="yearFilter">
-                <option value="">All Years</option>
-                <option value="2024">2024</option>
-                <option value="2023">2023</option>
-                <option value="2022">2022</option>
-                <option value="2021">2021</option>
-            </select>
-=======
+
              <form id="filterForm" action="series" method="get">
     <select name="genre" onchange="document.getElementById('filterForm').submit()">
         <option value="">All Genres</option>
@@ -103,11 +101,14 @@
         <option value="Drama" ${param.genre == 'Drama' ? 'selected' : ''}>Drama</option>
         <option value="Sci-Fi" ${param.genre == 'Sci-Fi' ? 'selected' : ''}>Sci-Fi</option>
         <option value="Comedy" ${param.genre == 'Comedy' ? 'selected' : ''}>Comedy</option>
+        <option value="Horror" ${param.genre == 'Horror' ? 'selected' : ''}>Horror</option>       
+  
         
     </select>
 
     <select name="year" onchange="document.getElementById('filterForm').submit()">
         <option value="">All Years</option>
+        <option value="2025" ${param.year == '2025' ? 'selected' : ''}>2025</option>
         <option value="2024" ${param.year == '2024' ? 'selected' : ''}>2024</option>
         <option value="2023" ${param.year == '2023' ? 'selected' : ''}>2023</option>
         <option value="2022" ${param.year == '2022' ? 'selected' : ''}>2022</option>
@@ -116,103 +117,24 @@
 
     </select>
 </form>
->>>>>>> recovered-changes
         </section>
 
         <section class="featured-text">
           <h1>Featured Movies</h1>
         </section>
 
-<<<<<<< HEAD
-         <!-- Movie, Series, Cartoons Sections -->
-         <section class="featured-cards">
-          <!-- Breaking Bad -->
-        
-          <div class="media-card">
-            <div class="fav-btn-fixed">
-              <button class="fav-btn" onclick="toggleFavorite(this)">
-                <i class="fa-regular fa-heart"></i>
-              </button>
-            </div>
-            <div class="image-wrapper">
-              <img src="https://m.media-amazon.com/images/M/MV5BMzU5ZGYzNmQtMTdhYy00OGRiLTg0NmQtYjVjNzliZTg1ZGE4XkEyXkFqcGc@._V1_.jpg" alt="Movie">
-              <div class="overlay">
-                <a href="#playerModal" class="watch-btn" onclick="playVideo('${pageContext.request.contextPath}/resources/video/Breaking Bad.mp4')">▶ Watch Now</a>
-              </div>
-            </div>
-            <div class="media-info">
-              <h3 class="media-title">Breaking Bad</h3>
-              <p class="media-meta">Genre: Series | Year: 2022</p>
-            </div>
-          </div>
-                      
-              <!--Strangers Things-->
-        
-              <div class="media-card">
-                <div class="fav-btn-fixed">
-                  <button class="fav-btn" onclick="toggleFavorite(this)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="image-wrapper">
-                  <img src="https://m.media-amazon.com/images/M/MV5BMjg2NmM0MTEtYWY2Yy00NmFlLTllNTMtMjVkZjEwMGVlNzdjXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Movie">
-                  <div class="overlay">
-                    <a href="#playerModal" class="watch-btn" onclick="playVideo('${pageContext.request.contextPath}/resources/video/Stranger Things .mp4')">▶ Watch Now</a>
-                  </div>
-                </div>
-                <div class="media-info">
-                  <h3 class="media-title">Strangers Things</h3>
-                  <p class="media-meta">Genre: Drama | Year: 2020</p>
-                </div>
-              </div>
 
-              <!--Peaky Blinders-->
-        
-              <div class="media-card">
-                <div class="fav-btn-fixed">
-                  <button class="fav-btn" onclick="toggleFavorite(this)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="image-wrapper">
-                  <img src="https://i.ebayimg.com/images/g/XVoAAOSwAcdgRBj~/s-l1200.jpg" alt="Movie">
-                  <div class="overlay">
-                    <a href="#playerModal" class="watch-btn" onclick="playVideo('${pageContext.request.contextPath}/resources/video/Mission Impossible The Final Reckoning.mp4')">▶ Watch Now</a>
-                  </div>
-                </div>
-                <div class="media-info">
-                  <h3 class="media-title">Peaky Blinders</h3>
-                  <p class="media-meta">Genre: Drama | Year: 2021</p>
-                </div>
-              </div>
-        
-              <!-- SUITS -->
-        
-              <div class="media-card">
-                <div class="fav-btn-fixed">
-                  <button class="fav-btn" onclick="toggleFavorite(this)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="image-wrapper">
-                  <img src="https://m.media-amazon.com/images/M/MV5BYmE4MmNjZjUtNTEyNy00NTZiLWE4NTktYjM2NjBhYzQ1N2IzXkEyXkFqcGc@._V1_.jpg" alt="Movie">
-                  <div class="overlay">
-                    <a href="#playerModal" class="watch-btn" onclick="playVideo('${pageContext.request.contextPath}/resources/video/Mission Impossible The Final Reckoning.mp4')">▶ Watch Now</a>
-                  </div>
-                </div>
-                <div class="media-info">
-                  <h3 class="media-title">SUITS</h3>
-                  <p class="media-meta">Genre: Drama | Year: 2019</p>
-                </div>
-              </div>
-=======
-        
-            <section class="featured-cards">
+            <section class="featured-cards" id="seriesSection">
                 <c:forEach var="movie" items="${movieList}">
 					  <div class="media-card">
 					    <div class="fav-btn-fixed">
-					      <button class="fav-btn" onclick="toggleFavorite(this, '${movie.movieID}')">
-					        <i class="fa-regular fa-heart"></i>
+					      <form action="favorite" method="post" style="display:inline;">
+							  <input type="hidden" name="movieId" value="${movie.movieID}" />
+							  <input type="hidden" name="redirect" value="series#seriesSection">
+							  <button type="submit" class="fav-btn" style="background: none; border: none;">
+							   <i class="${movie.isFav ? 'fa-solid' : 'fa-regular'} fa-heart" style="${movie.isFav ? 'color:red;' : ''}"></i>
+							  </button>
+							</form>
 					      </button>
 					    </div>
 					    <div class="image-wrapper">
@@ -235,7 +157,6 @@
 					  </div>
 					</c:forEach>
         
->>>>>>> recovered-changes
             </section>
         
             <!-- Popup Player -->
@@ -260,7 +181,7 @@
         <div class="footer-section">
             <h3>Quick Links</h3>
             <a href="about">About Us</a>
-            <a href="#">Contact</a>
+            <a href="https://help.netflix.com/en">Contact</a>
             <a href="termsCondition">Terms of Service</a>
         </div>
         <div class="footer-section">
@@ -276,36 +197,10 @@
         <p>&copy; 2025 Movieहेरम. All rights reserved.</p>
     </div>
 </footer>
-<script src="${pageContext.request.contextPath}/javascript/main.js">
+<script>
   function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-</script>
-<script>
-if ('ontouchstart' in window) {
-    document.body.classList.add('touch-device');
-  }
-  // Home page mp4 (Only mute/unmute toggle button)
-  document.addEventListener('DOMContentLoaded', () => {
-      const muteButton = document.getElementById('mute-btn');
-      const video = document.getElementById('hero-video');
-  
-      // Set initial muted state to true (muted initially)
-      video.muted = true;
-      muteButton.textContent = '🔇'; // Set icon on load
-  
-      // Handle mute/unmute button click
-      muteButton.addEventListener('click', () => {
-          if (video.muted) {
-              video.muted = false;  // Unmute the video
-              muteButton.textContent = '🔊';  // Change button to unmute icon
-          } else {
-              video.muted = true;  // Mute the video
-              muteButton.textContent = '🔇';  // Change button to mute icon
-          }
-      });
-  });
-  
 
  // Back to Top Button(->)
  const backToTop = document.getElementById('back-to-top');

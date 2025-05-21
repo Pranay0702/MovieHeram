@@ -1,21 +1,21 @@
 package com.movieheram.controller;
 
-import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletException; 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-<<<<<<< HEAD
-=======
 import java.util.List;
 
 import com.movieheram.model.MovieModel;
+import com.movieheram.model.UserModel;
+import com.movieheram.service.FavoriteService;
 import com.movieheram.service.MovieService;
->>>>>>> recovered-changes
 
 /**
- * Servlet implementation class SeriesController
+ * SeriesController is responsible for handling cartoon page. It interacts with
+ * the MovieService and FavoriteService to  list the specific series types and favorite the content.
  */
 @WebServlet(asyncSupported = true, urlPatterns = { "/series" })
 public class SeriesController extends HttpServlet {
@@ -29,14 +29,21 @@ public class SeriesController extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+    /**
+	 * Handles GET requests to the series page.
+	 *
+	 * @param request  HttpServletRequest object
+	 * @param response HttpServletResponse object
+	 * @throws ServletException if a servlet-specific error occurs
+	 * @throws IOException      if an I/O error occurs
 	 */
+    @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
-=======
+
 		MovieService movieService = new MovieService();
+    	FavoriteService favoriteService = new FavoriteService();
+
     	List<MovieModel> movieList = movieService.getSeries();
     	String genre = request.getParameter("genre");
     	String year = request.getParameter("year");
@@ -46,14 +53,34 @@ public class SeriesController extends HttpServlet {
     	    movieList = movieService.getSeriesFiltered(genre, year);
     	}
     	
+    	// Get the user ID from the session
+    	UserModel sessionUser = (UserModel) request.getSession().getAttribute("user");
+    	if (sessionUser == null) {
+    	    response.sendRedirect("login");
+    	    return;
+    	}
+    	int userId = sessionUser.getId();
+    	
+
+        for (MovieModel movie : movieList) {
+            boolean isFav = favoriteService.isFavorite(userId, movie.getMovieID());
+            movie.setIsFav(isFav);  
+        }
+
+    	
     	request.setAttribute("movieList", movieList);
->>>>>>> recovered-changes
 	    request.getRequestDispatcher("/WEB-INF/pages/series.jsp").forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+    /**
+	 * Handles GET requests to the series page.
+	 *
+	 * @param request  HttpServletRequest object
+	 * @param response HttpServletResponse object
+	 * @throws ServletException if a servlet-specific error occurs
+	 * @throws IOException      if an I/O error occurs
 	 */
+    @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

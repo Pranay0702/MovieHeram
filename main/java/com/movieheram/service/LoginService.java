@@ -1,10 +1,7 @@
 package com.movieheram.service;
 
-import java.sql.Connection;
-<<<<<<< HEAD
-=======
+import java.sql.Connection; 
 
->>>>>>> recovered-changes
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,7 +19,12 @@ public class LoginService {
 
     private Connection dbConn;
     private boolean isConnectionError = false;
-
+    
+    /**
+	 * Constructor that initializes the database connection. Sets the connection
+	 * error flag if the connection fails.
+	 */
+    
     public LoginService() {
         try {
             dbConn = DbConfig.getDbConnection();

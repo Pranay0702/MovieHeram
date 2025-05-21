@@ -1,11 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<<<<<<< HEAD
+<%@ page import="com.movieheram.model.UserModel" %>
     
-=======
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
->>>>>>> recovered-changes
+<%
+    UserModel user = (UserModel) session.getAttribute("user");
+    if (user == null) {
+        response.sendRedirect("login");
+        return;
+    }
+    %>
     
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +34,9 @@
             <a href="series">Series</a>
             <a href="cartoon">Anime</a>
       <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Search...">
+        <form action="home" method="get" id="searchForm">
+        <input type="text" id="searchInput" name="search" placeholder="Search..." value="${param.search}">
+        </form>
       </div>
       <div class="auth-buttons">
         <div class="profile-container" id="profileContainer">
@@ -46,13 +53,8 @@
 				        </c:if>
           <div class="profile-dropdown">
             <a href="profile">My Profile</a>
-<<<<<<< HEAD
-            <a href="profile">My Favourites</a>
-            <a href="logOut" id="logoutBtn">Logout</a>
-=======
-            <a href="favorite">My Favourites</a>
+		    <a href="favorite">My Favorites</a>
             <a href="logout" id="logoutBtn">Logout</a>
->>>>>>> recovered-changes
           </div>
         </div>
       </div>
@@ -67,55 +69,37 @@
 </div>
 
     <main>
-      <section class="MainApp">
-      
+    <section class="MainApp">
+
         <video id="MainApp-video" autoplay loop muted playsinline class="MainApp-video">
             <source src="${pageContext.request.contextPath}/resources/video/intro.mov" type="video/mp4" />
             Your browser does not support the video.
         </video>
         <div class="MainApp-content">
-            <h1>Welcome To Movieहेरम 🎬</h1>
-            <p style="font-size: 1.5rem;">Watch unlimited movies, Animes & series</p>
+            <h1>Welcome To Movieहेरम🎬</h1>
+            <p style="font-size: 1.5rem;">Watch unlimited movies, animes & series</p>
         </div>
         <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="500" id="scroll-down-btn">
             <div class="mouse"></div>
             <p>Scroll Down</p>
         </div>
-          <!-- Mute Button -->
-          <button id="mute-btn" class="mute-btn">🔇</button>
-    </section>    
+    </section>
 
         <section class="filters">
-<<<<<<< HEAD
-            <select id="genreFilter">
-                <option value="">All Genres</option>
-                <option value="action">Action</option>
-                <option value="comedy">Comedy</option>
-                <option value="drama">Drama</option>
-                <option value="horror">Horror</option>
-            </select>
-            <select id="yearFilter">
-                <option value="">All Years</option>
-                <option value="2024">2024</option>
-                <option value="2023">2023</option>
-                <option value="2022">2022</option>
-                <option value="2021">2021</option>
-            </select>
-        </section>
-
-=======
            <form id="filterForm" action="home" method="get">
-    <select name="genre" onchange="document.getElementById('filterForm').submit()">
+   	 <select name="genre" onchange="document.getElementById('filterForm').submit()">
         <option value="">All Genres</option>
         <option value="Action" ${param.genre == 'Action' ? 'selected' : ''}>Action</option>
         <option value="Drama" ${param.genre == 'Drama' ? 'selected' : ''}>Drama</option>
         <option value="Sci-Fi" ${param.genre == 'Sci-Fi' ? 'selected' : ''}>Sci-Fi</option>
         <option value="Comedy" ${param.genre == 'Comedy' ? 'selected' : ''}>Comedy</option>
+        <option value="Horror" ${param.genre == 'Horror' ? 'selected' : ''}>Horror</option>       
         
     </select>
 
     <select name="year" onchange="document.getElementById('filterForm').submit()">
         <option value="">All Years</option>
+        <option value="2025" ${param.year == '2025' ? 'selected' : ''}>2025</option>
         <option value="2024" ${param.year == '2024' ? 'selected' : ''}>2024</option>
         <option value="2023" ${param.year == '2023' ? 'selected' : ''}>2023</option>
         <option value="2022" ${param.year == '2022' ? 'selected' : ''}>2022</option>
@@ -125,517 +109,27 @@
     </select>
 </form>
         </section>
->>>>>>> recovered-changes
-        <section class="featured-text">
-          <h1>Featured Movies</h1>
-        </section>
-
-         <!-- Movie, Series, Cartoons Sections -->
-         <section class="featured-cards">
-
-                    <!--mission impossible-->
-  
-        <div class="media-card">
-<<<<<<< HEAD
-            <div class="fav-btn-fixed">
-              <button class="fav-btn" onclick="toggleFavorite(this)">
-                <i class="fa-regular fa-heart"></i>
-              </button>
-            </div>
-=======
->>>>>>> recovered-changes
-            <div class="image-wrapper">
-              <img src="https://m.media-amazon.com/images/M/MV5BZGQ5NGEyYTItMjNiMi00Y2EwLTkzOWItMjc5YjJiMjMyNTI0XkEyXkFqcGc@._V1_.jpg" alt="Movie">
-              <div class="overlay">
-                <a href="#playerModal" class="watch-btn" onclick="playVideo('${pageContext.request.contextPath}/resources/video/Mission Impossible The Final Reckoning.mp4')">▶ Watch Now</a>
-              </div>
-            </div>
-            <div class="media-info">
-              <h3 class="media-title">Mission Impossible The Final Reckoning</h3>
-              <p class="media-meta">Genre: Action | Year: 2023</p>
-            </div>
-          </div>
-                
-              <!--Maharaja-->
-        
-              <div class="media-card">
-<<<<<<< HEAD
-                <div class="fav-btn-fixed">
-                  <button class="fav-btn" onclick="toggleFavorite(this)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-=======
->>>>>>> recovered-changes
-                <div class="image-wrapper">
-                  <img src="https://m.media-amazon.com/images/M/MV5BZDJjNzdkNmItZDExMy00NzA3LWE3YzEtM2U3ZGRjMThlMDU2XkEyXkFqcGc@._V1_.jpg" alt="Movie">
-                  <div class="overlay">
-                    <a href="#playerModal" class="watch-btn" onclick="playVideo('${pageContext.request.contextPath}/resources/video/Maharaja.mp4')">▶ Watch Now</a>
-                  </div>
-                </div>
-                <div class="media-info">
-                  <h3 class="media-title">Maharaja</h3>
-                  <p class="media-meta">Genre: Action | Year: 2023</p>
-                </div>
-            </div>
-
-            <!-- Breaking Bad -->
-        
-            <div class="media-card">
-<<<<<<< HEAD
-                <div class="fav-btn-fixed">
-                    <button class="fav-btn" onclick="toggleFavorite(this)">
-                      <i class="fa-regular fa-heart"></i>
-                    </button>
-                  </div>
-=======
->>>>>>> recovered-changes
-                  <div class="image-wrapper">
-                    <img src="https://m.media-amazon.com/images/M/MV5BMzU5ZGYzNmQtMTdhYy00OGRiLTg0NmQtYjVjNzliZTg1ZGE4XkEyXkFqcGc@._V1_.jpg" alt="Movie">
-                    <div class="overlay">
-                      <a href="#playerModal" class="watch-btn" onclick="playVideo('${pageContext.request.contextPath}/resources/video/Breaking Bad.mp4')">▶ Watch Now</a>
-                    </div>
-                  </div>
-                  <div class="media-info">
-                    <h3 class="media-title">Breaking Bad</h3>
-                    <p class="media-meta">Genre: Series | Year: 2023</p>
-                  </div>
-                </div>
-
-             <!-- Chhaava -->
-        
-              <div class="media-card">
-<<<<<<< HEAD
-                <div class="fav-btn-fixed">
-                  <button class="fav-btn" onclick="toggleFavorite(this)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-=======
->>>>>>> recovered-changes
-                <div class="image-wrapper">
-                  <img src="https://m.media-amazon.com/images/M/MV5BMDMyZjFmZTctNDAxYi00MWM3LWJiYmItM2VhNWZiM2IwNjNlXkEyXkFqcGc@._V1_.jpg" alt="Movie">
-                  <div class="overlay">
-                    <a href="#playerModal" class="watch-btn" onclick="playVideo('${pageContext.request.contextPath}/resources/video/Mission Impossible The Final Reckoning.mp4')">▶ Watch Now</a>
-                  </div>
-                </div>
-                <div class="media-info">
-                  <h3 class="media-title">Chhaava</h3>
-                  <p class="media-meta">Genre: Action | Year: 2023</p>
-                </div>
-              </div>
-         </section>
-
+           
          <section class="latest-uploads-text">
           <h1>Latest Uploaded Movies</h1>
         </section>
-
-            <section class="latest-uploads-cards">
-<<<<<<< HEAD
-                
-                <!--Avengers Infinity War-->
-              <div class="media-card">
-                <div class="fav-btn-fixed">
-                  <button class="fav-btn" onclick="toggleFavorite(this)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="image-wrapper">
-                  <img src="https://images.moviesanywhere.com/0473778fb19af5e749f06d249804ba13/887b650e-5661-4fd7-aa24-bf38179342a5.jpg" alt="Movie">
-                  <div class="overlay">
-                    <a href="#playerModal" class="watch-btn" onclick="playVideo('${pageContext.request.contextPath}/resources/video/Mission Impossible The Final Reckoning.mp4')">▶ Watch Now</a>
-                  </div>
-                </div>
-                <div class="media-info">
-                  <h3 class="media-title">Avengers Infinity War</h3>
-                  <p class="media-meta">Genre: Action | Year: 2019</p>
-                </div>
-              </div>
-        
-              <!--Tron-->
-        
-              <div class="media-card">
-                <div class="fav-btn-fixed">
-                  <button class="fav-btn" onclick="toggleFavorite(this)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="image-wrapper">
-                  <img src="https://m.media-amazon.com/images/M/MV5BMmJiMWE2NTYtZWMyZC00Yzg0LTg0YjItZDM3ODlkYTRhNWNlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Movie">
-                  <div class="overlay">
-                    <a href="#playerModal" class="watch-btn" onclick="playVideo('${pageContext.request.contextPath}/resources/video/Mission Impossible The Final Reckoning.mp4')">▶ Watch Now</a>
-                  </div>
-                </div>
-                <div class="media-info">
-                  <h3 class="media-title">Tron</h3>
-                  <p class="media-meta">Genre: Action | Year: 2025</p>
-                </div>
-              </div>
-        
-              <!--mission impossible-->
-        
-              <div class="media-card">
-                <div class="fav-btn-fixed">
-                  <button class="fav-btn" onclick="toggleFavorite(this)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="image-wrapper">
-                  <img src="https://m.media-amazon.com/images/M/MV5BZGQ5NGEyYTItMjNiMi00Y2EwLTkzOWItMjc5YjJiMjMyNTI0XkEyXkFqcGc@._V1_.jpg" alt="Movie">
-                  <div class="overlay">
-                    <a href="#playerModal" class="watch-btn" onclick="playVideo('${pageContext.request.contextPath}/resources/video/Mission Impossible The Final Reckoning.mp4')">▶ Watch Now</a>
-                  </div>
-                </div>
-                <div class="media-info">
-                  <h3 class="media-title">Mission Impossible The Final Reckoning</h3>
-                  <p class="media-meta">Genre: Action | Year: 2023</p>
-                </div>
-              </div>
-        
-              <!--Jurassic World Rebirth-->
-        
-              <div class="media-card">
-                <div class="fav-btn-fixed">
-                  <button class="fav-btn" onclick="toggleFavorite(this)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="image-wrapper">
-                  <img src="https://cdn.europosters.eu/image/1300/posters/jurassic-world-i114154.jpg" alt="Movie">
-                  <div class="overlay">
-                    <a href="#playerModal" class="watch-btn" onclick="${pageContext.request.contextPath}/resources/video/Mission Impossible The Final Reckoning.mp4')">▶ Watch Now</a>
-                  </div>
-                </div>
-                <div class="media-info">
-                  <h3 class="media-title">The Matrix Resurrections</h3>
-                  <p class="media-meta">Genre: Action | Year: 2023</p>
-                </div>
-              </div>
-        
-               <!--Kung fu Panda 4-->
-        
-               <div class="media-card">
-                <div class="fav-btn-fixed">
-                  <button class="fav-btn" onclick="toggleFavorite(this)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="image-wrapper">
-                  <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrakPTsqdEOxYzMjxiAu2V8Lb_MV8luTzwiGTuyhzcnUdL5m5Pn8P0QUvDsOqSol-i27-eSg" alt="Movie">
-                  <div class="overlay">
-                    <a href="#playerModal" class="watch-btn" onclick="playVideo('${pageContext.request.contextPath}/resources/video/KUNG FU PANDA 4.mp4')">▶ Watch Now</a>
-                  </div>
-                </div>
-                <div class="media-info">
-                  <h3 class="media-title">KUNG FU PANDA 4</h3>
-                  <p class="media-meta">Genre: Animation | Year: 2024</p>
-                </div>
-              </div>
-        
-              <!--Despicable Me 4 | Rotten Tomatoes-->
-        
-              <div class="media-card">
-                <div class="fav-btn-fixed">
-                  <button class="fav-btn" onclick="toggleFavorite(this)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="image-wrapper">
-                  <img src="https://resizing.flixster.com/vH3pXN9NjNObggCELzxEkFZfmM8=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzMyNmZhYmFmLWFkN2EtNDViMC1iM2U4LWM4YjUzMjcyMDNiNC5qcGc=" alt="Movie">
-                  <div class="overlay">
-                    <a href="#playerModal" class="watch-btn" onclick="playVideo('${pageContext.request.contextPath}/resources/video/Despicable Me 4.mp4')">▶ Watch Now</a>
-                  </div>
-                </div>
-                <div class="media-info">
-                  <h3 class="media-title">Despicable Me 4 | Rotten Tomatoes</h3>
-                  <p class="media-meta">Genre: Animation | Year: 2024</p>
-                </div>
-              </div>
-                      
-              <!--Cars-->
-        
-              <div class="media-card">
-                <div class="fav-btn-fixed">
-                  <button class="fav-btn" onclick="toggleFavorite(this)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="image-wrapper">
-                  <img src="https://lumiere-a.akamaihd.net/v1/images/p_cars_19643_4405006d.jpeg" alt="Movie">
-                  <div class="overlay">
-                    <a href="#playerModal" class="watch-btn" onclick="playVideo('${pageContext.request.contextPath}/resources/video/Mission Impossible The Final Reckoning.mp4')">▶ Watch Now</a>
-                  </div>
-                </div>
-                <div class="media-info">
-                  <h3 class="media-title">Cars</h3>
-                  <p class="media-meta">Genre: Animation | Year: 2020</p>
-                </div>
-              </div>
-        
-              <!-- How to train ur Dragon -->
-        
-              <div class="media-card">
-                <div class="fav-btn-fixed">
-                  <button class="fav-btn" onclick="toggleFavorite(this)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="image-wrapper">
-                  <img src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p3625299_p_v13_al.jpg" alt="Movie">
-                  <div class="overlay">
-                    <a href="#playerModal" class="watch-btn" onclick="playVideo('${pageContext.request.contextPath}/resources/video/Mission Impossible The Final Reckoning.mp4')">▶ Watch Now</a>
-                  </div>
-                </div>
-                <div class="media-info">
-                  <h3 class="media-title">HOW TO TRAIN YOUR DRAGON</h3>
-                  <p class="media-meta">Genre: Action | Year: 2023</p>
-                </div>
-              </div>
-        
-              <!--Maharaja-->
-        
-              <div class="media-card">
-                <div class="fav-btn-fixed">
-                  <button class="fav-btn" onclick="toggleFavorite(this)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="image-wrapper">
-                  <img src="https://m.media-amazon.com/images/M/MV5BZDJjNzdkNmItZDExMy00NzA3LWE3YzEtM2U3ZGRjMThlMDU2XkEyXkFqcGc@._V1_.jpg" alt="Movie">
-                  <div class="overlay">
-                    <a href="#playerModal" class="watch-btn" onclick="playVideo('/Movies/Maharaja.mp4')">▶ Watch Now</a>
-                  </div>
-                </div>
-                <div class="media-info">
-                  <h3 class="media-title">Maharaja</h3>
-                  <p class="media-meta">Genre: Action | Year: 2023</p>
-                </div>
-              </div>
-        
-              <!--KGF - Chapter 1-->
-        
-              <div class="media-card">
-                <div class="fav-btn-fixed">
-                  <button class="fav-btn" onclick="toggleFavorite(this)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="image-wrapper">
-                  <img src="https://m.media-amazon.com/images/S/pv-target-images/0978dc3775492a124027b21df5153ab61b4c90cc518cbe126ebb3769d34640d5.jpg" alt="Movie">
-                  <div class="overlay">
-                    <a href="#playerModal" class="watch-btn" onclick="playVideo('/Movies/KGF - Chapter 1.mp4')">▶ Watch Now</a>
-                  </div>
-                </div>
-                <div class="media-info">
-                  <h3 class="media-title">KGF - Chapter 1</h3>
-                  <p class="media-meta">Genre: Action | Year: 2020</p>
-                </div>
-              </div>
-                      
-              <!--Kabir Singh-->
-        
-              <div class="media-card">
-                <div class="fav-btn-fixed">
-                  <button class="fav-btn" onclick="toggleFavorite(this)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="image-wrapper">
-                  <img src="https://m.media-amazon.com/images/M/MV5BOTQyOWNhOTktODlmNy00NDVkLWE4MTAtYjZlMTg5MzA4ZWY0XkEyXkFqcGc@._V1_QL75_UX820_.jpg" alt="Movie">
-                  <div class="overlay">
-                    <a href="#playerModal" class="watch-btn" onclick="playVideo('/Movies/Kabir Singh.mp4')">▶ Watch Now</a>
-                  </div>
-                </div>
-                <div class="media-info">
-                  <h3 class="media-title">Kabir Singh</h3>
-                  <p class="media-meta">Genre: Romance/Action | Year: 2019</p>
-                </div>
-              </div>
-        
-              <!-- Chhaava -->
-        
-              <div class="media-card">
-                <div class="fav-btn-fixed">
-                  <button class="fav-btn" onclick="toggleFavorite(this)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="image-wrapper">
-                  <img src="https://m.media-amazon.com/images/M/MV5BMDMyZjFmZTctNDAxYi00MWM3LWJiYmItM2VhNWZiM2IwNjNlXkEyXkFqcGc@._V1_.jpg" alt="Movie">
-                  <div class="overlay">
-                    <a href="#playerModal" class="watch-btn" onclick="playVideo('/Movies/Chhaava.mp4')">▶ Watch Now</a>
-                  </div>
-                </div>
-                <div class="media-info">
-                  <h3 class="media-title">Chhaava</h3>
-                  <p class="media-meta">Genre: Action | Year: 2023</p>
-                </div>
-              </div>
-        
-              <!--RAID 2-->
-        
-              <div class="media-card">
-                <div class="fav-btn-fixed">
-                  <button class="fav-btn" onclick="toggleFavorite(this)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="image-wrapper">
-                  <img src="https://images.filmibeat.com/ph-big/2025/04/everything-you-need-to-know-about-raid-2-cast-plot-and-release-details1743743094_0.jpg" alt="Movie">
-                  <div class="overlay">
-                    <a href="#playerModal" class="watch-btn" onclick="playVideo('/Movies/RAID 2.mp4')">▶ Watch Now</a>
-                  </div>
-                </div>
-                <div class="media-info">
-                  <h3 class="media-title">RAID 2</h3>
-                  <p class="media-meta">Genre: Thriller | Year: 2025</p>
-                </div>
-              </div>
-        
-              <!--Superman-->
-        
-              <div class="media-card">
-                <div class="fav-btn-fixed">
-                  <button class="fav-btn" onclick="toggleFavorite(this)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="image-wrapper">
-                  <img src="https://m.media-amazon.com/images/M/MV5BZjFhZmU5NzUtZTg4Zi00ZjRjLWI0YmQtODk2MzI4YjNhYTdkXkEyXkFqcGc@._V1_.jpg" alt="Movie">
-                  <div class="overlay">
-                    <a href="#playerModal" class="watch-btn" onclick="playVideo('/Movies/Superman.mp4')">▶ Watch Now</a>
-                  </div>
-                </div>
-                <div class="media-info">
-                  <h3 class="media-title">Superman</h3>
-                  <p class="media-meta">Genre: Action | Year: 2015</p>
-                </div>
-              </div>
-                      
-              <!--Strangers Things-->
-        
-              <div class="media-card">
-                <div class="fav-btn-fixed">
-                  <button class="fav-btn" onclick="toggleFavorite(this)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="image-wrapper">
-                  <img src="https://m.media-amazon.com/images/M/MV5BMjg2NmM0MTEtYWY2Yy00NmFlLTllNTMtMjVkZjEwMGVlNzdjXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Movie">
-                  <div class="overlay">
-                    <a href="#playerModal" class="watch-btn" onclick="playVideo('/Movies/Stranger Things .mp4')">▶ Watch Now</a>
-                  </div>
-                </div>
-                <div class="media-info">
-                  <h3 class="media-title">Strangers Things</h3>
-                  <p class="media-meta">Genre: Series | Year: 2023</p>
-                </div>
-              </div>
-        
-              <!-- Breaking Bad -->
-        
-              <div class="media-card">
-                <div class="fav-btn-fixed">
-                  <button class="fav-btn" onclick="toggleFavorite(this)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="image-wrapper">
-                  <img src="https://m.media-amazon.com/images/M/MV5BMzU5ZGYzNmQtMTdhYy00OGRiLTg0NmQtYjVjNzliZTg1ZGE4XkEyXkFqcGc@._V1_.jpg" alt="Movie">
-                  <div class="overlay">
-                    <a href="#playerModal" class="watch-btn" onclick="playVideo('/Movies/Breaking Bad.mp4')">▶ Watch Now</a>
-                  </div>
-                </div>
-                <div class="media-info">
-                  <h3 class="media-title">Breaking Bad</h3>
-                  <p class="media-meta">Genre: Series | Year: 2023</p>
-                </div>
-              </div>
-
-               <!--Avengers Infinity War-->
-               <div class="media-card">
-                <div class="fav-btn-fixed">
-                  <button class="fav-btn" onclick="toggleFavorite(this)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="image-wrapper">
-                  <img src="https://images.moviesanywhere.com/0473778fb19af5e749f06d249804ba13/887b650e-5661-4fd7-aa24-bf38179342a5.jpg" alt="Movie">
-                  <div class="overlay">
-                    <a href="#playerModal" class="watch-btn" onclick="playVideo('/Movies/Marvel Studios Avengers Infinity War.mp4')">▶ Watch Now</a>
-                  </div>
-                </div>
-                <div class="media-info">
-                  <h3 class="media-title">Avengers Infinity War</h3>
-                  <p class="media-meta">Genre: Action | Year: 2019</p>
-                </div>
-              </div>
-        
-              <!--Tron-->
-        
-              <div class="media-card">
-                <div class="fav-btn-fixed">
-                  <button class="fav-btn" onclick="toggleFavorite(this)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                </div>
-                <div class="image-wrapper">
-                  <img src="https://m.media-amazon.com/images/M/MV5BMmJiMWE2NTYtZWMyZC00Yzg0LTg0YjItZDM3ODlkYTRhNWNlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Movie">
-                  <div class="overlay">
-                    <a href="#playerModal" class="watch-btn" onclick="playVideo('/Movies/Tron.mp4')">▶ Watch Now</a>
-                  </div>
-                </div>
-                <div class="media-info">
-                  <h3 class="media-title">Tron</h3>
-                  <p class="media-meta">Genre: Action | Year: 2025</p>
-                </div>
-              </div>
-        
-              <!--Fast and Furious-->
-           <div class="media-card">
-            <div class="fav-btn-fixed">
-              <button class="fav-btn" onclick="toggleFavorite(this)">
-                <i class="fa-regular fa-heart"></i>
-              </button>
-            </div>
-            <div class="image-wrapper">
-              <img src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p10679969_p_v8_av.jpg" alt="Movie">
-              <div class="overlay">
-                <a href="#playerModal" class="watch-btn" onclick="playVideo('/Movies/Marvel Studios Avengers Infinity War.mp4')">▶ Watch Now</a>
-              </div>
-            </div>
-            <div class="media-info">
-              <h3 class="media-title">Fast and Furious</h3>
-              <p class="media-meta">Genre: Action | Year: 2019</p>
-            </div>
-          </div>
-    
-          <!--Conjuring 2-->
-    
-          <div class="media-card">
-            <div class="fav-btn-fixed">
-              <button class="fav-btn" onclick="toggleFavorite(this)">
-                <i class="fa-regular fa-heart"></i>
-              </button>
-            </div>
-            <div class="image-wrapper">
-              <img src="https://m.media-amazon.com/images/I/81ZpWSeRbVL._AC_UF1000,1000_QL80_.jpg" alt="Movie">
-              <div class="overlay">
-                <a href="#playerModal" class="watch-btn" onclick="playVideo('/Movies/Tron.mp4')">▶ Watch Now</a>
-              </div>
-            </div>
-            <div class="media-info">
-              <h3 class="media-title">Conjuring 2</h3>
-              <p class="media-meta">Genre: Horror | Year: 2025</p>
-            </div>
-          </div>
-=======
+  			
+            <section class="latest-uploads-cards" id="homeSection">
+            <c:if test="${empty movieList}">
+  			<div style="text-align:left; padding: 40px; color:red;">
+		      <h1>No movies found</h1>
+		    </div>
+			</c:if>
                 <c:forEach var="movie" items="${movieList}">
 					  <div class="media-card">
 					    <div class="fav-btn-fixed">
-					      <button class="fav-btn" onclick="toggleFavorite(this, '${movie.movieID}')">
-					        <i class="fa-regular fa-heart"></i>
-					      </button>
+					      <form action="favorite" method="post" style="display:inline;">
+							  <input type="hidden" name="movieId" value="${movie.movieID}" />
+							    <input type="hidden" name="redirect" value="home#homeSection">
+							  <button type="submit" class="fav-btn" style="background: none; border: none;">
+							   <i class="${movie.isFav ? 'fa-solid' : 'fa-regular'} fa-heart" style="${movie.isFav ? 'color:red;' : ''}"></i>
+							  </button>
+							</form>
 					    </div>
 					    <div class="image-wrapper">
 								<c:choose>
@@ -656,7 +150,6 @@
 					    </div>
 					  </div>
 					</c:forEach>
->>>>>>> recovered-changes
         
             </section>
         
@@ -682,7 +175,7 @@
         <div class="footer-section">
             <h3>Quick Links</h3>
             <a href="about">About Us</a>
-            <a href="#">Contact</a>
+            <a href="https://help.netflix.com/en">Contact</a>
             <a href="termsCondition">Terms of Service</a>
         </div>
         <div class="footer-section">
@@ -701,27 +194,13 @@
 if ('ontouchstart' in window) {
     document.body.classList.add('touch-device');
   }
-  // Home page mp4 (Only mute/unmute toggle button)
-  document.addEventListener('DOMContentLoaded', () => {
-      const muteButton = document.getElementById('mute-btn');
-      const video = document.getElementById('hero-video');
   
-      // Set initial muted state to true (muted initially)
-      video.muted = true;
-      muteButton.textContent = '🔇'; // Set icon on load
-  
-      // Handle mute/unmute button click
-      muteButton.addEventListener('click', () => {
-          if (video.muted) {
-              video.muted = false;  // Unmute the video
-              muteButton.textContent = '🔊';  // Change button to unmute icon
-          } else {
-              video.muted = true;  // Mute the video
-              muteButton.textContent = '🔇';  // Change button to mute icon
-          }
-      });
-  });
-  
+document.getElementById("searchInput").addEventListener("input", function() {
+	  const value = this.value.trim();
+	  if (value === "") {
+	    document.getElementById("searchForm").submit(); // Re-fetch all movies
+	  }
+	});
 
  // Back to Top Button(->)
  const backToTop = document.getElementById('back-to-top');
@@ -757,46 +236,8 @@ if ('ontouchstart' in window) {
          window.scrollTo({ top: 0, behavior: 'smooth' });
      }
  
-//Toggle Fav Btn
-<<<<<<< HEAD
-function toggleFavorite(btn) {
-       btn.classList.toggle("active");
-       const icon = btn.querySelector("i");
-       if (btn.classList.contains("active")) {
-         icon.classList.remove("fa-regular");
-         icon.classList.add("fa-solid");
-       } else {
-         icon.classList.remove("fa-solid");
-         icon.classList.add("fa-regular");
-       }
-    }
-=======
-function toggleFavorite(btn, movieId) {
-    btn.classList.toggle("active");
-    const icon = btn.querySelector("i");
-    const isAdding = btn.classList.contains("active");
 
-    // Toggle icon style
-    icon.classList.toggle("fa-solid", isAdding);
-    icon.classList.toggle("fa-regular", !isAdding);
 
-    // AJAX to backend
-    fetch("favorite", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: `movieId=${movieId}`
-    })
-    .then(response => response.text())
-    .then(data => {
-        console.log("Favorite status:", data);
-    })
-    .catch(error => {
-        console.error("Error updating favorite:", error);
-    });
-}
->>>>>>> recovered-changes
  
     //MP4 player
 
@@ -826,11 +267,6 @@ function toggleFavorite(btn, movieId) {
    });
 
 </script>
-
-<<<<<<< HEAD
-<script src="${pageContext.request.contextPath}/javascript/main.js/"></script>
-=======
->>>>>>> recovered-changes
 
 </body>
 </html>

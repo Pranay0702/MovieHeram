@@ -8,7 +8,21 @@ import java.util.Objects;
 import com.movieheram.config.DbConfig;
 import com.movieheram.util.PasswordUtil;
 
+/**
+ * Service class for updating user information in the database.
+ * 
+ * This class provides methods to update student details and fetch program IDs
+ * from the database. It manages database connections and handles SQL
+ * exceptions.
+ */
+
 public class UpdateService {
+	
+	/**
+	 * Updates user name in the database.
+	 * 
+	 * @param user The UserModel object containing the updated user data.
+	 */
 	
 	public void updateName(int userId, String newName) {
         String sql = "UPDATE user SET Name = ? WHERE User_ID = ?";
@@ -21,6 +35,12 @@ public class UpdateService {
             e.printStackTrace();
         }
     }
+	
+	/**
+	 * Updates user image in the database.
+	 * 
+	 * @param user The UserModel object containing the updated user data.
+	 */
 
 	public void updateImage(int userId, String imageUrl) {
         String sql = "UPDATE user SET Image = ? WHERE User_ID = ?";
@@ -33,6 +53,11 @@ public class UpdateService {
             e.printStackTrace();
         }
     }
+	/**
+	 * Updates password in the database.
+	 * 
+	 * @param user The UserModel object containing the updated user data.
+	 */
 
 	public boolean changePassword(String email, String currentPassword, String newPassword) {
 	    try (Connection conn = DbConfig.getDbConnection()) {

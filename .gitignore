@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+# Ignore video folders
 main/webapp/resources/video/
 .DS_Store
->>>>>>> 95e6e14 (Initial commit excluding video folder)
+

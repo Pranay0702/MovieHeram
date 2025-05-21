@@ -10,7 +10,19 @@ import java.nio.file.StandardCopyOption;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.Part;
 
+/**
+ * Utility class for handling video file uploads in the MovieHeram application.
+ */
+
 public class VideoUtil {
+	/**
+     * Saves an uploaded movie video to the server's "resources/video" directory.
+     * This method is typically used within a servlet context to determine the real path dynamically.
+     *
+     * @param videoPart the video file uploaded as a Part object
+     * @param request   the HttpServletRequest to get the application context path
+     * @return the saved file name if successful, otherwise null
+     */
 	    public static String saveMovieVideo(Part videoPart, HttpServletRequest request) {
 	        String fileName = Paths.get(videoPart.getSubmittedFileName()).getFileName().toString();
 	        String uploadPath = request.getServletContext().getRealPath("") + File.separator + "resources/video";
@@ -26,7 +38,15 @@ public class VideoUtil {
 
 	        return fileName;
 	    }
-
+	    
+	    /**
+	     * Saves an uploaded video file to a hardcoded path in the local file system.
+	     * This method is useful for local development without relying on servlet context paths.
+	     *
+	     * @param videoPart the video file uploaded as a Part object
+	     * @return the saved file name if successful, otherwise null
+	     */
+	    
 		public static String saveFile(Part videoPart) {
 			    String fileName = Paths.get(videoPart.getSubmittedFileName()).getFileName().toString();
 			    String uploadPath = "/Users/najibthapa1/eclipse-workspace/MovieHeram/src/main/webapp/resources/video";

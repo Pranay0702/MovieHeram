@@ -12,16 +12,23 @@ import com.movieheram.model.UserModel;
 import com.movieheram.service.SignUpService;
 import com.movieheram.util.SessionUtil;
 /**
- * @author Najib Thapa
+ * MembershipController handles the membership plans.
  */
 @WebServlet(asyncSupported = true, urlPatterns = {"/membership"})
 public class MembershipController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    // This method will handle GET and POST requests.
+    /**
+	 * Handles POST requests for  user membership plan.
+	 *
+	 * @param request  HttpServletRequest object
+	 * @param response HttpServletResponse object
+	 * @throws ServletException if a servlet-specific error occurs
+	 * @throws IOException      if an I/O error occurs
+	 */
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Here you can process the form data (if needed) and then forward the request to membership.jsp
     	String membershipIdStr = request.getParameter("membershipId");
 
     	if (membershipIdStr != null) {
@@ -42,11 +49,18 @@ public class MembershipController extends HttpServlet {
     	        response.sendRedirect("membership?error=updateFailed");
     	    }
     	} else {
-    	    // This is just rendering the membership page
     	    request.getRequestDispatcher("/WEB-INF/pages/membership.jsp").forward(request, response);
     	}    }
-
-    // Handling GET request for loading the membership page
+    
+    /**
+	 * Handles GET requests to the  user membership plan..
+	 *
+	 * @param request  HttpServletRequest object
+	 * @param response HttpServletResponse object
+	 * @throws ServletException if a servlet-specific error occurs
+	 * @throws IOException      if an I/O error occurs
+	 */
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.getRequestDispatcher("/WEB-INF/pages/membership.jsp").forward(request, response);

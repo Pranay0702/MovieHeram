@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-=======
+
 @charset "UTF-8";
 
->>>>>>> recovered-changes
 * {
   margin: 0;
   padding: 0;
@@ -24,21 +22,21 @@ body {
 
 main {
     flex: 1;
-    padding-top: 80px;
+    padding-top: 0px;
 }
 
 nav {
-    background-color: rgba(0, 0, 0, 0.663);
-    padding: 1rem 2rem;
-    position: sticky;
-    width: 100%;
-    top: 0; 
-    z-index: 998;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 2px 10px rgb(0, 0, 0);
+     background-color: rgba(0, 0, 0, 0.663);
+	  padding: 1rem 2rem;
+	  position: sticky;
+	  top: 0;
+	  width: 100%;
+	  padding: 1rem;
+	  backdrop-filter: blur(5px);
+	  z-index: 1000;
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
   }
   
   /* Back to Top Button */
@@ -148,6 +146,9 @@ nav {
     outline: none;
   }
   
+  #searchInput {
+  color: red; 
+}
   .profile-container {
     position: relative;
     cursor: pointer;
@@ -201,34 +202,54 @@ nav {
     transform: translateX(5px);
   }
 
-  .page-header {
-    text-align: center;
-    padding: 10rem 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                url('https://static.vecteezy.com/system/resources/previews/043/555/242/non_2x/realistic-3d-cinema-film-strip-in-perspective-isolated-on-blue-background-template-cinema-festival-movie-design-cinema-film-strip-for-ad-poster-presentation-show-brochure-banner-or-flyer-vector.jpg') center/cover;
-    border-radius: 30px;
-    transition: transform 0.3s ease;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    margin-top: -16rem;
+  .MainApp {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 102.5vh;
+  margin-top: -8.5rem;
+  margin-bottom: 1rem;
+  padding: 0;
+  overflow: hidden;
 }
 
-.page-header h1 {
-  margin-top:15rem;
+/* Hero Video Styling */
+.MainApp-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 102%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  pointer-events: none;
+  filter: brightness(0.4);
+}
+
+/* Hero content on top of video */
+.MainApp-content {
+  position: relative;
+  z-index: 10; /* Ensures content stays above video */
+}
+
+/* Hero text effects */
+.MainApp h1 {
   margin-bottom: 5rem;
   font-size: 7rem;
   font-weight: bold;
-  background: linear-gradient(120deg, #fff700, #00eaff, #ffffff, #ff0000, #0400ff);
+  background: linear-gradient(120deg, #ff3adb, #ff823f, #ff4747, #ffffff);
   background-size: 300% 300%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradientFlow 3s ease-in-out infinite;
+  animation: gradientFlow 2s ease-in-out infinite;
   text-align: center;
 }
-
+  
 @keyframes gradientFlow {
   0% {
     background-position: 0% 50%;
@@ -241,7 +262,7 @@ nav {
   }
 }
 
-.page-header p {
+.MainApp p {
   font-size: 1.5rem;
   margin-top: -4rem;
   color: #ffe6e6;
@@ -256,11 +277,6 @@ nav {
   50% {
     text-shadow: 0 0 10px #ffcccc;
   }
-}
-
-main {
-    margin-top: 4rem;
-    padding: 2rem;
 }
 
 .filters {
@@ -288,6 +304,46 @@ main {
     transform: scale(1.05);
     box-shadow: 0 0 10px rgba(255, 8, 8, 0.8), 0 0 20px rgba(255, 8, 8, 0.6);
   }
+  .scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  /* Reverses order: text on top, mouse below */
+  flex-direction: column-reverse; 
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.scroll-indicator p {
+  margin: 0;
+  font-size: 1rem;
+  color: white;
+}  
+
+.mouse {
+  width: 30px;
+  height: 50px;
+  border: 2px solid var(--accent-color, #ff0000);
+  border-radius: 15px;
+  position: relative;
+}
+
+.mouse::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 8px;
+  background: var(--accent-color, #ff0000);
+  border-radius: 2px;
+  animation: scrollDown 1.5s infinite;
+}
 
   .featured-cards{
     display: grid;
@@ -442,36 +498,6 @@ main {
   }
   
 
-/* Popup Player Overlay */
-.popup-player {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.85);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 1111;
-}
-
-/* Show when targeted via anchor */
-.popup-player:target {
-  display: flex;
-}
-
-/* Player Content Box */
-.player-content {
-  background: #000;
-  border-radius: 12px;
-  padding: 20px;
-  position: relative;
-  width: 90%;
-  max-width: 800px;
-  box-shadow: 0 0 20px rgba(255, 65, 108, 0.6);
-  animation: fadeIn 0.3s ease-in-out;
-}
 
 .video-wrapper {
   position: relative;
@@ -598,34 +624,6 @@ video {
     transform: translateY(0);
 }
 
-  /* Popup Player Overlay */
-  .popup-player {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgb(0, 0, 0);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-  }
-
-  .popup-player:target {
-    display: flex;
-  }
-
-  .player-content {
-    background: #000000;
-    border-radius: 30px;
-    padding: 20px;
-    position: relative;
-    width: 90%;
-    max-width: 1200px;
-    box-shadow: 0 0 25px rgb(114, 114, 114);
-    animation: fadeIn 0.3s ease-in-out;
-  }
 
   video {
     width: 1200px;
@@ -633,24 +631,6 @@ video {
     border-radius: 5px;
   }
 
-  .close-btn {
-    position: absolute;
-    top: -15px;
-    right: -20px;
-    font-size: 38px;
-    color: #fff;
-    background: #ff0a0a;
-    padding: 9px 20px;
-    border-radius: 100px;
-    text-decoration: none;
-    box-shadow: 0 4px 12px rgb(98, 0, 0);
-    transition: transform 0.3s ease, background 0.3s ease;
-  }
-
-  .close-btn:hover {
-    transform: scale(0.96);
-    background: #b30000;
-  }
 
   @keyframes fadeIn {
     from {
@@ -670,9 +650,9 @@ video {
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 3rem;
+    display: flex;
+    justify-content:center;
+    gap: 10rem;
     max-width: 1200px;
     margin: 0 auto;
 }

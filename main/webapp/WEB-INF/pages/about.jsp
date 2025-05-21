@@ -6,12 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - MovieHerau</title>
-<link rel="stylesheet" type="text/css"
-<<<<<<< HEAD
-	href="${pageContext.request.contextPath}/css/about.css" />
-=======
-	href="${pageContext.request.contextPath}/css/about.css"/>
->>>>>>> recovered-changes
+
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/about.css"/>
 </head></head>
 <body>
     <div class="container">
@@ -19,7 +15,7 @@
             <h1>About Us</h1>
         </header>
         <div class="card">
-            <h1>🎬 Movieहेरम</h1>
+            <h1 align="center">🎬 Movieहेरम</h1>
             <div style="text-align: center;">
                 <p>
                     Welcome to Movieहेरम – your ultimate destination for streaming cinema that ignites passion. Born 
@@ -49,11 +45,8 @@
                 <button class="card-button" data-modal="modal5">Learn More</button>
             </div>
             <div class="card">
-<<<<<<< HEAD
-                <img src="${pageContext.request.contextPath}/resources/images/user/avatar2.png" alt="Developer 1" class="card-image">
-=======
+
                 <img src="${pageContext.request.contextPath}/resources/images/user/avatar1.png" alt="Developer 1" class="card-image">
->>>>>>> recovered-changes
                 <h3>Najib Thapa</h3>
                 <p>Lead Developer</p>
                 <button class="card-button" data-modal="modal1">Learn More</button>
@@ -84,18 +77,7 @@
                 
 
                 <div class="modal-body">
-<<<<<<< HEAD
-                    <table class="cv">
-                        <!-- top ;eft introduction heading-->
-                        <tr>
-                          <th style="width: 70%">
-                            <table style="text-align: left; margin: 70px">
-                              <tr>
-                                <th>
-                                  <table>
-                                    <tr>
-                                      <th style="width: 50%; text-align: center">
-=======
+
                     <div class="con" class="cv">
                         <!-- top left introduction heading-->
                         <div class="con-hline">
@@ -106,27 +88,11 @@
                                   <div class="con">
                                     <div class="con-hline">
                                       <div style="width: 50%; text-align: center">
->>>>>>> recovered-changes
                                         <img
                                           src="${pageContext.request.contextPath}/resources/images/user/avatar1.png"
                                           class="modal-image"
                                         /><!-- image file for introduction -->
-<<<<<<< HEAD
-                                      </th>
-                                      <th style="width: 50%; text-align: left; ">
-                                        <b> Aryan Bhandary</b><br/>
-                                        <i>Project Manager</i>
-                                      </th>
-                                    </tr>
-                                  </table>
-                                </th>
-                              </tr>
-                  
-                              <tr>
-                                <!-- about me section -->
-                                <th>
-                                  <b> About Me</b><br />
-=======
+
                                       </div>
                                       <div style="width: 50%; text-align: left; ">
                                         <b> Aryan Bhandary</b><br/>
@@ -141,80 +107,11 @@
                                 <!-- about me section -->
                                 <div class="con-cell">
                                   <b> About Me</b><br/>
->>>>>>> recovered-changes
                                   <p class="text">
                                     I am a computing student studing at Islington College.
                                     I live in Radhe Radhe, Bhaktapur. I belive in hardwork 
                                     with interest in learning new topics. 
                                   </p>
-<<<<<<< HEAD
-                                </th>
-                              </tr>
-                  
-                              <tr>
-                                <!-- middle left  -->
-                                <th>
-                                  <br><b> Academic Qualification</b><br />
-                                  <table style="padding: 10px">
-                                    <tr>
-                                      <th style="padding: 10px">
-                                        <a>College:</a>
-                                      </th>
-                                      <th style="padding: 10px">
-                                        <c>Khwopa Higher Secondary School<br />
-                                          Dekocha, Bhaktapur</c>
-                                      </th>
-                                    </tr>
-                                    <tr>
-                                      <th style="padding: 10px">
-                                        <a>University:</a>
-                                      </th>
-                                      <th style="padding: 10px">
-                                        <c>Islington College<br />
-                                          KamalPokhari, Kathmandu</c>
-                                      </th>
-                                    </tr>
-                                  </table>
-                                </th>
-                              </tr>
-                  
-                              <tr>
-                                <!-- bottom left  -->
-                                <th style="padding: 0px">
-                                  <b> Interests</b><br>
-                                  <c>Bikes </c><c> Music </c><c> Planes </c><c> Gaming </c>
-                                </th>
-                              </tr>
-                            </table>
-                          </th>
-                  
-                          <th>
-                            <!-- middle right  -->
-                            <table style="text-align: left; margin-top: -40px;">
-                              <tr>
-                                <th style="padding: 50px;">
-                                  <b> Contact Me</b><br />
-                                  <table style="padding: 10px">
-                                    <tr>
-                                      <th><a>Mobile:</a></th>
-                                      <th>
-                                        <c> 9767233360</c>
-                                      </th>
-                                    </tr>
-                                      <th>
-                                        <a>Email:</a>
-                                      </th>
-                                      <th>
-                                        <c>bhaaryan304@gmail.com</c>
-                                      </th>
-                                    </tr>
-                                  </table>
-                                </th>
-                              </tr>
-                              <tr>
-                                <!-- down right -->
-                                <th style="padding-left: 50px;">
-=======
                                 </div>
                               </div>
                   
@@ -281,7 +178,6 @@
                               <div class="con-hline">
                                 <!-- down right -->
                                 <div style="padding-left: 50px;">
->>>>>>> recovered-changes
                                   <b>Skills</b>
                                   <div class="skill">
                                     <li>
@@ -301,23 +197,6 @@
                                       <span class="bar"><span class="java"></span></span>
                                     </li>
                                   </div>
-<<<<<<< HEAD
-                                </th>
-                              </tr>
-                            </table>
-                          </th>
-                        </tr>
-                      </table>
-                </div>
-            </div>
-        </div>
-        
-
-
-
-
-
-=======
                                 </div>
                               </div>
                             </div>
@@ -328,42 +207,12 @@
             </div>
         </div>
         
->>>>>>> recovered-changes
         <div id="modal1" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <div class="modal-header">
-<<<<<<< HEAD
-                  <table class="cv">
-                    <!-- top ;eft introduction heading-->
-                    <tr>
-                      <th style="width: 70%">
-                        <table style="text-align: left; margin: 70px">
-                          <tr>
-                            <th>
-                              <table>
-                                <tr>
-                                  <th style="width: 50%; text-align: center">
-                                    <img
-                                      src="${pageContext.request.contextPath}/resources/images/user/avatar2.png"
-                                      class="modal-image"
-                                    /><!-- image file for introduction -->
-                                  </th>
-                                  <th style="width: 50%; text-align: left; ">
-                                    <b> Najib Thapa</b><br/>
-                                    <i>Lead Developer</i>
-                                  </th>
-                                </tr>
-                              </table>
-                            </th>
-                          </tr>
-              
-                          <tr>
-                            <!-- about me section -->
-                            <th>
-=======
-                  <div class="con" class="cv">
-                    <!-- top ;eft introduction heading-->
+		         <div class="con" class="cv">
+                    <!-- top left introduction heading-->
                     <div class="con-hline">
                       <div style="width: 70%">
                         <div class="con" style="text-align: left; margin: 20px">
@@ -389,82 +238,12 @@
                           <div class="con-hline">
                             <!-- about me section -->
                             <div class="con-cell">
->>>>>>> recovered-changes
                               <b> About Me</b><br />
                               <p class="text">
                                 I am a computing student studying at Islington College. 
                                 I live in Suryabinayak, Bhaktapur. I believe in hardwork
                                 and aim to become a successful entrepreneur in teh future.
                               </p>
-<<<<<<< HEAD
-                            </th>
-                          </tr>
-              
-                          <tr>
-                            <!-- middle left  -->
-                            <th>
-                              <br><b> Academic Qualification</b><br />
-                              <table style="padding: 10px">
-                                <tr>
-                                  <th style="padding: 10px">
-                                    <a>College:</a>
-                                  </th>
-                                  <th style="padding: 10px">
-                                    <c>Khwopa Higher Secondary School<br />
-                                      Dekocha, Bhaktapur</c>
-                                  </th>
-                                </tr>
-                                <tr>
-                                  <th style="padding: 10px">
-                                    <a>University:</a>
-                                  </th>
-                                  <th style="padding: 10px">
-                                    <c>Islington College<br />
-                                      KamalPokhari, Kathmandu</c>
-                                  </th>
-                                </tr>
-                              </table>
-                            </th>
-                          </tr>
-              
-                          <tr>
-                            <!-- bottom left  -->
-                            <th style="padding: 0px">
-                              <b> Interests</b><br>
-                              <c>Bikes </c><c> Music </c><c> Planes </c><c> Gaming </c>
-                            </th>
-                          </tr>
-                        </table>
-                      </th>
-              
-                      <th>
-                        <!-- middle right  -->
-                        <table style="text-align: left; margin-top: -40px;">
-                          <tr>
-                            <th style="padding: 50px;">
-                              <b> Contact Me</b><br />
-                              <table style="padding: 10px">
-                                <tr>
-                                  <th><a>Mobile:</a></th>
-                                  <th>
-                                    <c> 9741234598</c>
-                                  </th>
-                                </tr>
-                                <tr>
-                                  <th>
-                                    <a>Email:</a>
-                                  </th>
-                                  <th>
-                                    <c>najibthapa7@gmail.com</c>
-                                  </th>
-                                </tr>
-                              </table>
-                            </th>
-                          </tr>
-                          <tr>
-                            <!-- down right -->
-                            <th style="padding-left: 50px;">
-=======
                             </div>
                           </div>
               
@@ -532,7 +311,6 @@
                           <div class="con-hline">
                             <!-- down right -->
                             <div style="padding-left: 50px;">
->>>>>>> recovered-changes
                               <b>Skills</b>
                               <div class="skill">
                                 <li>
@@ -552,62 +330,20 @@
                                   <span class="bar"><span class="java"></span></span>
                                 </li>
                               </div>
-<<<<<<< HEAD
-                            </th>
-                          </tr>
-                        </table>
-                      </th>
-                    </tr>
-                  </table>
-=======
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
->>>>>>> recovered-changes
                 </div>
             </div>
         </div>
         
-<<<<<<< HEAD
-
-=======
->>>>>>> recovered-changes
         <div id="modal3" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <div class="modal-header">
-<<<<<<< HEAD
-                  <table class="cv">
-                    <!-- top ;eft introduction heading-->
-                    <tr>
-                      <th style="width: 70%">
-                        <table style="text-align: left; margin: 70px">
-                          <tr>
-                            <th>
-                              <table>
-                                <tr>
-                                  <th style="width: 50%; text-align: center">
-                                    <img
-                                      src="${pageContext.request.contextPath}/resources/images/user/avatar1.png"
-                                      class="modal-image"
-                                    /><!-- image file for introduction -->
-                                  </th>
-                                  <th style="width: 50%; text-align: left; ">
-                                    <b> Pranay Shakya</b><br/>
-                                    <i>Backend Developer</i>
-                                  </th>
-                                </tr>
-                              </table>
-                            </th>
-                          </tr>
-              
-                          <tr>
-                            <!-- about me section -->
-                            <th>
-=======
                   <div class="con" class="cv">
                     <!-- top left introduction heading-->
                     <div class="con-hline">
@@ -635,82 +371,12 @@
                           <div class="con-hline">
                             <!-- about me section -->
                             <div class="con-cell">
->>>>>>> recovered-changes
                               <b> About Me</b><br />
                               <p class="text">
                                 I am a computing student studying at Islington College. 
                                 I live in Sundhara, Kathmandu. I believe in self 
                                 development and try to be a better version of myself on a daily basis.
                               </p>
-<<<<<<< HEAD
-                            </th>
-                          </tr>
-              
-                          <tr>
-                            <!-- middle left  -->
-                            <th>
-                              <br><b> Academic Qualification</b><br />
-                              <table style="padding: 10px">
-                                <tr>
-                                  <th style="padding: 10px">
-                                    <a>College:</a>
-                                  </th>
-                                  <th style="padding: 10px">
-                                    <c>St. Xavier's College<br />
-                                      Maitighar, Kathmandu</c>
-                                  </th>
-                                </tr>
-                                <tr>
-                                  <th style="padding: 10px">
-                                    <a>University:</a>
-                                  </th>
-                                  <th style="padding: 10px">
-                                    <c>Islington College<br />
-                                      KamalPokhari, Kathmandu</c>
-                                  </th>
-                                </tr>
-                              </table>
-                            </th>
-                          </tr>
-              
-                          <tr>
-                            <!-- bottom left  -->
-                            <th style="padding: 0px">
-                              <b> Interests</b><br>
-                              <c>Travelling </c><c> Music </c><c> Piano </c><c> Gaming </c>
-                            </th>
-                          </tr>
-                        </table>
-                      </th>
-              
-                      <th>
-                        <!-- middle right  -->
-                        <table style="text-align: left; margin-top: -40px;">
-                          <tr>
-                            <th style="padding: 50px;">
-                              <b> Contact Me</b><br />
-                              <table style="padding: 10px">
-                                <tr>
-                                  <th><a>Mobile:</a></th>
-                                  <th>
-                                    <c> 9840897210</c>
-                                  </th>
-                                </tr>
-                                <tr>
-                                  <th>
-                                    <a>Email:</a>
-                                  </th>
-                                  <th>
-                                    <c>shakyapranay7@gmail.com</c>
-                                  </th>
-                                </tr>
-                              </table>
-                            </th>
-                          </tr>
-                          <tr>
-                            <!-- down right -->
-                            <th style="padding-left: 50px;">
-=======
                             </div>
                           </div>
               
@@ -778,7 +444,6 @@
                           <div class="con-hline">
                             <!-- down right -->
                             <div style="padding-left: 50px;">
->>>>>>> recovered-changes
                               <b>Skills</b>
                               <div class="skill">
                                 <li>
@@ -802,21 +467,12 @@
                                   <span class="bar"><span class="python"></span></span>
                                 </li>
                               </div>
-<<<<<<< HEAD
-                            </th>
-                          </tr>
-                        </table>
-                      </th>
-                    </tr>
-                  </table>
-=======
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
->>>>>>> recovered-changes
                 </div>
             </div>
         </div>
@@ -825,18 +481,6 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <div class="modal-header">
-<<<<<<< HEAD
-                  <table class="cv">
-                    <!-- top ;eft introduction heading-->
-                    <tr>
-                      <th style="width: 70%">
-                        <table style="text-align: left; margin: 70px">
-                          <tr>
-                            <th>
-                              <table>
-                                <tr>
-                                  <th style="width: 50%; text-align: center">
-=======
                   <div class="con" class="cv">
                     <!-- top left introduction heading-->
                     <div class="con-hline">
@@ -847,26 +491,10 @@
                               <div class="con">
                                 <div class="con-hline">
                                   <div style="width: 50%; text-align: center">
->>>>>>> recovered-changes
                                     <img
                                       src="${pageContext.request.contextPath}/resources/images/user/rohit.PNG"
                                       class="modal-image"
                                     /><!-- image file for introduction -->
-<<<<<<< HEAD
-                                  </th>
-                                  <th style="width: 50%; text-align: left; ">
-                                    <b>Rohit Joshi</b><br/>
-                                    <i>UI/UX Designer</i>
-                                  </th>
-                                </tr>
-                              </table>
-                            </th>
-                          </tr>
-              
-                          <tr>
-                            <!-- about me section -->
-                            <th>
-=======
                                   </div>
                                   <div style="width: 50%; text-align: left; ">
                                     <b>Rohit Joshi</b><br/>
@@ -880,82 +508,12 @@
                           <div class="con-hline">
                             <!-- about me section -->
                             <div class="con-cell">
->>>>>>> recovered-changes
                               <b> About Me</b><br />
                               <p class="text">
                                 I am a computing student studing at Islington College.
                                 I live in Hattiban, Lalitpur. I would like to become a 
                                 professional video editor in the future.
                               </p>
-<<<<<<< HEAD
-                            </th>
-                          </tr>
-              
-                          <tr>
-                            <!-- middle left  -->
-                            <th>
-                              <br><b> Academic Qualification</b><br />
-                              <table style="padding: 10px">
-                                <tr>
-                                  <th style="padding: 10px">
-                                    <a>College:</a>
-                                  </th>
-                                  <th style="padding: 10px">
-                                    <c>St. Xavier's College<br />
-                                      Lagankhel, Lalitpur</c>
-                                  </th>
-                                </tr>
-                                <tr>
-                                  <th style="padding: 10px">
-                                    <a>University:</a>
-                                  </th>
-                                  <th style="padding: 10px">
-                                    <c>Islington College<br />
-                                      KamalPokhari, Kathmandu</c>
-                                  </th>
-                                </tr>
-                              </table>
-                            </th>
-                          </tr>
-              
-                          <tr>
-                            <!-- bottom left  -->
-                            <th style="padding: 0px">
-                              <b> Interests</b><br>
-                              <c> </c><c>  </c><c>  </c><c>  </c>
-                            </th>
-                          </tr>
-                        </table>
-                      </th>
-              
-                      <th>
-                        <!-- middle right  -->
-                        <table style="text-align: left; margin-top: -40px;">
-                          <tr>
-                            <th style="padding: 50px;">
-                              <b> Contact Me</b><br />
-                              <table style="padding: 10px">
-                                <tr>
-                                  <th><a>Mobile:</a></th>
-                                  <th>
-                                    <c> 9767462649</c>
-                                  </th>
-                                </tr>
-                                <tr>
-                                  <th>
-                                    <a>Email:</a>
-                                  </th>
-                                  <th>
-                                    <c>joshirohit7@gmail.com</c>
-                                  </th>
-                                </tr>
-                              </table>
-                            </th>
-                          </tr>
-                          <tr>
-                            <!-- down right -->
-                            <th style="padding-left: 50px;">
-=======
                             </div>
                           </div>
               
@@ -1023,7 +581,6 @@
                           <div class="con-hline">
                             <!-- down right -->
                             <div style="padding-left: 50px;">
->>>>>>> recovered-changes
                               <b>Skills</b>
                               <div class="skill">
                                 <li>
@@ -1043,21 +600,12 @@
                                   <span class="bar"><span class="java"></span></span>
                                 </li>
                               </div>
-<<<<<<< HEAD
-                            </th>
-                          </tr>
-                        </table>
-                      </th>
-                    </tr>
-                  </table>
-=======
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
->>>>>>> recovered-changes
                 </div>
             </div>
         </div>
@@ -1066,18 +614,6 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <div class="modal-header">
-<<<<<<< HEAD
-                  <table class="cv">
-                    <!-- top ;eft introduction heading-->
-                    <tr>
-                      <th style="width: 70%">
-                        <table style="text-align: left; margin: 70px">
-                          <tr>
-                            <th>
-                              <table>
-                                <tr>
-                                  <th style="width: 50%; text-align: center">
-=======
                   <div class="con" class="cv">
                     <!-- top left introduction heading-->
                     <div class="con-hline">
@@ -1088,27 +624,11 @@
                               <div class="con">
                                 <div class="con-hline">
                                   <div style="width: 50%; text-align: center">
->>>>>>> recovered-changes
                                     <img
                                       src="${pageContext.request.contextPath}/resources/images/user/avatar1.png"
                                       class="modal-image"
                                     /><!-- image file for introduction -->
-<<<<<<< HEAD
-                                  </th>
-                                  <th style="width: 50%; text-align: left; ">
-                                    <b>Shrine Ghimire</b><br/>
-                                    <i>Content Manager</i>
-                                  </th>
-                                </tr>
-                              </table>
-                            </th>
-                          </tr>
-              
-                          <tr>
-                            <!-- about me section -->
-                            <th>
-=======
-                                  </div>
+		                        </div>
                                   <div style="width: 50%; text-align: left; ">
                                     <b>Shrine Ghimire</b><br/>
                                     <i>Content Manager</i>
@@ -1121,82 +641,12 @@
                           <div class="con-hline">
                             <!-- about me section -->
                             <div class="con-cell">
->>>>>>> recovered-changes
                               <b> About Me</b><br />
                               <p class="text">
                                 I am a computing student studing at Islington College. 
                                 I live in Kapan, Kathmandu. I would like to create 
                                 successful enterprise in the near future. 
                               </p>
-<<<<<<< HEAD
-                            </th>
-                          </tr>
-              
-                          <tr>
-                            <!-- middle left  -->
-                            <th>
-                              <br><b> Academic Qualification</b><br />
-                              <table style="padding: 10px">
-                                <tr>
-                                  <th style="padding: 10px">
-                                    <a>College:</a>
-                                  </th>
-                                  <th style="padding: 10px">
-                                    <c>Global College of Science<br />
-                                      Mid Baneshwor, Kathmandu</c>
-                                  </th>
-                                </tr>
-                                <tr>
-                                  <th style="padding: 10px">
-                                    <a>University:</a>
-                                  </th>
-                                  <th style="padding: 10px">
-                                    <c>Islington College<br />
-                                      KamalPokhari, Kathmandu</c>
-                                  </th>
-                                </tr>
-                              </table>
-                            </th>
-                          </tr>
-              
-                          <tr>
-                            <!-- bottom left  -->
-                            <th style="padding: 0px">
-                              <b> Interests</b><br>
-                              <c>Programming </c><c> Cooking </c><c> Gaming </c>
-                            </th>
-                          </tr>
-                        </table>
-                      </th>
-              
-                      <th>
-                        <!-- middle right  -->
-                        <table style="text-align: left; margin-top: -40px;">
-                          <tr>
-                            <th style="padding: 50px;">
-                              <b> Contact Me</b><br />
-                              <table style="padding: 10px">
-                                <tr>
-                                  <th><a>Mobile:</a></th>
-                                  <th>
-                                    <c> 9702894497</c>
-                                  </th>
-                                </tr>
-                                <tr>
-                                  <th>
-                                    <a>Email:</a>
-                                  </th>
-                                  <th>
-                                    <c>shrineghimire7@gmail.com</c>
-                                  </th>
-                                </tr>
-                              </table>
-                            </th>
-                          </tr>
-                          <tr>
-                            <!-- down right -->
-                            <th style="padding-left: 50px;">
-=======
                             </div>
                           </div>
               
@@ -1264,7 +714,6 @@
                           <div class="con-hline">
                             <!-- down right -->
                             <div style="padding-left: 50px;">
->>>>>>> recovered-changes
                               <b>Skills</b>
                               <div class="skill">
                                 <li>
@@ -1288,31 +737,17 @@
                                   <span class="bar"><span class="js"></span></span>
                                 </li>
                               </div>
-<<<<<<< HEAD
-                            </th>
-                          </tr>
-                        </table>
-                      </th>
-                    </tr>
-                  </table>
-=======
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
->>>>>>> recovered-changes
                 </div>
             </div>
         </div>
         
 
-<<<<<<< HEAD
-        
-
-=======
->>>>>>> recovered-changes
         <!-- Footer -->
         <footer>
             <div class="footer-content">
@@ -1323,36 +758,23 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <a href="#">About Us</a>
-                    <a href="#">Contact</a>
+                    <a href="https://help.netflix.com/en">Contact</a>
                     <a href="termsCondition">Terms of Service</a>
                 </div>
                 <div class="footer-section">
                     <h3>Connect With Us</h3>
                     <div class="social-links">
-<<<<<<< HEAD
-                        <a href="#">Facebook</a>
-                        <a href="#">Twitter</a>
-                        <a href="#">Instagram</a>
-=======
                         <a href="https://www.facebook.com">Facebook</a>
                         <a href="https://www.twitter.com">Twitter</a>
                         <a href="https://www.instagram.com">Instagram</a>
->>>>>>> recovered-changes
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-<<<<<<< HEAD
-                <p>&copy; 2025 MovieHerau. All rights reserved.</p>
-            </div>
-        </footer>
-    </div>
-=======
                 <p>&copy; 2025 MovieHeram. All rights reserved.</p>
             </div>
         </footer>
     
->>>>>>> recovered-changes
     <script>
 
     document.addEventListener('DOMContentLoaded', function() {
@@ -1383,10 +805,6 @@
         });
     });
     </script>
-<<<<<<< HEAD
-    <script src="${pageContext.request.contextPath}/javascript/about.js"></script>
-=======
 
->>>>>>> recovered-changes
 </body>
 </html>

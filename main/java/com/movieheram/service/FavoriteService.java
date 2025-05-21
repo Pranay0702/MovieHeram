@@ -10,10 +10,20 @@ import java.util.List;
 import com.movieheram.config.DbConfig;
 import com.movieheram.model.MovieModel;
 
+/**
+ * Service class for handling favorite operations.
+ * Connects to the database.
+ */
+
 public class FavoriteService {
 	
 	private static Connection dbConn;
     private boolean isConnectionError = false;
+    
+    /**
+	 * Constructor that initializes the database connection. Sets the connection
+	 * error flag if the connection fails.
+	 */
     
     public FavoriteService() {
     	try {
@@ -63,14 +73,8 @@ public class FavoriteService {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                MovieModel movie = new MovieModel();
-                movie.setMovieID(rs.getInt("Movie_ID"));
-                movie.setTitle(rs.getString("Title"));
-                movie.setGenre(rs.getString("Genre"));
-                movie.setType(rs.getString("Type"));
-                movie.setReleaseYear(rs.getInt("Release_Year"));
-                movie.setThumbnail(rs.getString("Thumbnail"));
-                movie.setVideo(rs.getString("Video"));
+                MovieModel movie = mapMovieFromResultSet(rs);
+                movie.setIsFav(true);
                 favorites.add(movie);
             }
         } catch (Exception e) {
@@ -90,5 +94,36 @@ public class FavoriteService {
             e.printStackTrace();
         }
         return false;
+    }
+	
+	private MovieModel mapMovieFromResultSet(ResultSet rs) throws SQLException {
+        MovieModel movie = new MovieModel();
+        movie.setMovieID(rs.getInt("Movie_ID"));
+        movie.setTitle(rs.getString("Title"));
+        movie.setGenre(rs.getString("Genre"));
+        movie.setType(rs.getString("Type"));
+        movie.setReleaseYear(rs.getInt("Release_Year"));
+        movie.setThumbnail(rs.getString("Thumbnail"));
+        movie.setVideo(rs.getString("Video"));
+        return movie;
+    }
+	
+	public List<MovieModel> getAllMoviesWithFavoriteStatus(int userId) {
+        List<MovieModel> movies = new ArrayList<>();
+        try {
+            // First get all movies
+            PreparedStatement psAll = dbConn.prepareStatement("SELECT * FROM movie");
+            ResultSet rsAll = psAll.executeQuery();
+            
+            while (rsAll.next()) {
+                MovieModel movie = mapMovieFromResultSet(rsAll);
+                // Check if it's a favorite
+                movie.setIsFav(isFavorite(userId, movie.getMovieID()));
+                movies.add(movie);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return movies;
     }
 }

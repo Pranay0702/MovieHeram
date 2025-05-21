@@ -4,11 +4,7 @@ public class MovieModel {
 	private int movieID;
 	private String title;
 	private String genre;
-	private int releaseYear;
-	private String language;
-	
-	public MovieModel(int movieID, String title, String genre, int releaseYear, String language) {
-	private String type;
+		private String type;
 	private int releaseYear;
 	private String thumbnail;
 	private String video;
@@ -23,14 +19,24 @@ public class MovieModel {
 		this.title = title;
 		this.genre = genre;
 		this.releaseYear = releaseYear;
-		this.language = language;
 		this.type = type;
 		this.releaseYear = releaseYear;
 		this.thumbnail = thumbnail;
 		this.video = video;
 		this.isFav = isFav;
 	}
-
+	
+	public MovieModel(int movieID, String title, String genre, String type, int releaseYear, String thumbnail, String video) {
+		super();
+		this.movieID = movieID;
+		this.title = title;
+		this.genre = genre;
+		this.releaseYear = releaseYear;
+		this.type = type;
+		this.releaseYear = releaseYear;
+		this.thumbnail = thumbnail;
+		this.video = video;
+	}
 	public int getMovieID() {
 		return movieID;
 	}
@@ -72,14 +78,6 @@ public class MovieModel {
 		this.releaseYear = releaseYear;
 	}
 
-	public String getLanguage() {
-		return language;
-	}
-
-	public void setLanguage(String language) {
-		this.language = language;
-	}
-	
 	
 	public String getThumbnail() {
 		return thumbnail;

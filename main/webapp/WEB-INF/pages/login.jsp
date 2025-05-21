@@ -91,7 +91,7 @@
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <a href="about">About Us</a>
-                <a href="#">Contact</a>
+                <a href="https://help.netflix.com/en">Contact</a>
                 <a href="termsCondition">Terms of Service</a>
             </div>
             <div class="footer-section">
