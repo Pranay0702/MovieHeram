@@ -20,7 +20,7 @@ public class CookieUtil {
      * @param value    the value of the cookie
      * @param maxAge   the maximum age of the cookie in seconds
      */
-    public static void addCookie(HttpServletResponse response, String name, String value, int maxAge) {
+    public static void addCookie(HttpServletResponse response, String name, String value,int maxAge) {
         Cookie cookie = new Cookie(name, value);
         cookie.setMaxAge(maxAge);
         cookie.setPath("/"); // Make cookie available to the entire application

@@ -47,6 +47,7 @@ public class MovieController extends HttpServlet {
     	}
     	
     	// Get the user ID from the session
+    	
     	UserModel sessionUser = (UserModel) request.getSession().getAttribute("user");
     	if (sessionUser == null) {
     	    response.sendRedirect("login");

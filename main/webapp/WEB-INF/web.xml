@@ -18,6 +18,6 @@
     <description></description>
     <display-name>GetStartedController</display-name>
     <servlet-name>GetStartedController</servlet-name>
-    <servlet-class>com.islington.controller.GetStartedController</servlet-class>
+    <servlet-class>com.MovieHeram.controller.GetStartedController</servlet-class>
   </servlet>
 </web-app>
